@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Hàng chờ duyệt</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+:root,.ld{--bg:#F8F9FA;--surface:#FFFFFF;--surface2:#F1F3F4;--line:#E8EAED;--line2:#DADCE0;--tx:#202124;--tx2:#5F6368;--tx3:#3C4043;--tx4:#70757A;--pri:#1A73E8;--on-pri:#FFFFFF;--pri-bg:#E8F0FE;--pri-ink:#1967D2;--pri-ink2:#174EA6;--pri-line:#AECBFA;--pri-ring:#D2E3FC;--warn-bg:#FEF7E0;--warn:#B06000;--warn-ink:#7A4100;--warn-ink2:#633400;--warn-line:#FDE293;--ok-bg:#E6F4EA;--ok:#188038;--ok-ink:#137333;--ok-line:#CEEAD6;--ok-line2:#A8DAB5;--err-bg:#FCE8E6;--err:#C5221F;--err-ink:#A50E0E;--err-line:#F6AEA9;--inv-bg:#3C4043;--sh1:rgba(60,64,67,.04);--sh2:rgba(60,64,67,.25);--sh3:rgba(60,64,67,.3);--sun:none;--moon:inline;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),.ld:not([data-theme="light"]){--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}}
+:root[data-theme="dark"],.ld[data-theme="dark"]{--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}
+.i-sun{display:var(--sun)}.i-moon{display:var(--moon)}
+.tema{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--tx2);cursor:pointer;flex:0 0 auto}
+.tema:hover{background:var(--surface2);color:var(--tx)}
+
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif}
+a{color:var(--pri)}a:hover{color:var(--pri-ink2)}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;box-sizing:border-box;padding:0 16px;border-radius:999px;color:var(--tx3);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.1px}
+.tab:hover{color:var(--tx);background:var(--surface2)}
+.tab-on,.tab-on:hover{color:var(--pri-ink);background:var(--pri-bg)}
+.dem{font-size:12px;font-weight:500;background:var(--warn);color:var(--on-pri);border-radius:999px;padding:1px 8px;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+.muc{width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;cursor:pointer;font:inherit;color:inherit}
+.muc:hover{border-color:var(--pri-line)}
+.muc-on{border-color:var(--pri);box-shadow:0 0 0 2px var(--pri-ring)}
+.btn{min-height:48px;padding:0 22px;border-radius:999px;font:600 15px 'Roboto',system-ui,sans-serif;cursor:pointer;border:1px solid var(--line2);background:var(--surface);color:var(--tx)}
+.btn:disabled{cursor:not-allowed;opacity:.45}
+.btn-pri{background:var(--pri);border-color:var(--pri);color:var(--on-pri)}
+.btn-xau{color:var(--err);border-color:var(--err-line)}
+.ly{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--tx3);font:500 14px 'Roboto',system-ui,sans-serif;cursor:pointer}
+.ly-on{background:var(--pri-bg);border-color:var(--pri);color:var(--pri-ink)}
+</style>
+</helmet>
+<div class="ld" data-theme="{{tema}}" style="min-height: 100vh; background: var(--bg)">
+  <header style="background: var(--surface); border-bottom: 1px solid var(--line)">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+      <a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; margin-right: 8px">
+        <svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><rect x="2" y="2" width="30" height="30" rx="8" fill="#1A73E8"></rect><rect x="8" y="11" width="18" height="15" rx="3" fill="#FFFFFF"></rect><rect x="8" y="11" width="18" height="5" rx="2.5" fill="#AECBFA"></rect><rect x="12" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><rect x="19.4" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><circle cx="13.5" cy="21" r="1.7" fill="#1A73E8"></circle><circle cx="20.5" cy="21" r="1.7" fill="#188038"></circle></svg>
+        <span style="font-size: 20px; color: var(--tx2); font-weight: 400">jacobase <span style="color: var(--tx); font-weight: 500">Lịch đăng</span></span>
+      </a>
+      <nav aria-label="Các mục Lịch đăng" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+        <a class="tab" href="Main.dc.html">Lịch đăng</a>
+        <a class="tab" href="Brief.dc.html">Phiếu brief</a>
+        <a class="tab tab-on" href="Duyet.dc.html" aria-current="page">Chờ duyệt <span class="dem">42</span></a>
+        <a class="tab" href="UuDai.dc.html">Ưu đãi <span class="dem">3</span></a>
+        <a class="tab" href="Kho.dc.html">Kho nội dung</a>
+        <a class="tab" href="HieuQua.dc.html">Hiệu quả</a>
+      </nav>
+      <label style="display: flex; align-items: center; gap: 10px; flex: 0 1 260px; min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; background: var(--surface2); cursor: text">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--tx2)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Tìm page, bài, brief" placeholder="Tìm page, bài, brief" style="flex: 1 1 auto; min-width: 0; border: 0; background: transparent; outline: 0; font: 400 14px 'Roboto', system-ui, sans-serif; color: var(--tx)">
+      </label>
+      <a class="tab" href="QuanTri.dc.html">Quản trị</a>
+      <button type="button" class="tema" aria-label="Đổi giao diện sáng hoặc tối" title="Đổi giao diện sáng / tối" onClick="{{doiTema}}"><svg class="i-moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg><svg class="i-sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button>
+      <span title="Quản lý" aria-label="Tài khoản Quản lý" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--pri-bg); color: var(--pri-ink); font-weight: 500; font-size: 15px">Q</span>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <span style="display: block; font-size: 14px; color: var(--tx2)">Chào Quản lý, còn <strong style="color: var(--warn); font-weight: 500">42 bài</strong> đang chờ anh chị. Mình duyệt từng bài nhé.</span>
+      <h1 style="margin: 0; font-size: 28px; font-weight: 500; text-wrap: balance">Hàng chờ duyệt</h1>
+        <p style="margin: 0; color: var(--tx2); font-size: 14px">Bài nhạy cảm phải có người duyệt. Bài làn an toàn chỉ hiện ở đây khi rơi vào mẫu kiểm 20%. Mỗi bài ghi rõ làn (Chuyển đổi QC / Social Daily), tuyến, định dạng, cảm xúc.</p>
+      </div>
+      <p class="num" style="margin: 0; font-size: 14px; color: var(--tx2)">Hạn duyệt cho lịch ngày mai: <strong style="color: var(--tx)">17:00 hôm nay</strong></p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+      <section aria-label="Danh sách bài chờ" style="flex: 1 1 360px; max-width: 460px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px">
+          <span style="padding: 6px 12px; border-radius: 999px; background: var(--inv-bg); color: var(--on-pri); font-weight: 500">Tất cả 42</span>
+          <span style="padding: 6px 12px; border-radius: 999px; background: var(--warn-bg); color: var(--warn-ink); font-weight: 500">Nhạy cảm 19</span>
+          <span style="padding: 6px 12px; border-radius: 999px; background: var(--pri-bg); color: var(--pri-ink); font-weight: 500">Mẫu kiểm 20%</span>
+          <span style="padding: 6px 12px; border-radius: 999px; background: var(--pri-bg); color: var(--pri-ink); font-weight: 500">Bổ trợ QC 14</span>
+        </div>
+        <sc-for list="{{items}}" as="it" hint-placeholder-count="6">
+          <button type="button" class="{{it.cls}}" aria-pressed="{{it.on}}" onClick="{{it.pick}}">
+            <span style="display: flex; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--tx2)"><span>{{it.page}}</span><span class="num">{{it.gio}}</span></span>
+            <span style="font-size: 15px; font-weight: 600; line-height: 1.35">{{it.tieu}}</span>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span style="font-size: 12px; padding: 3px 10px; border-radius: 999px; background: {{it.lanBg}}; color: {{it.lanFg}}; font-weight: 500">{{it.lan}}</span>
+              <span style="font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--surface2); color: var(--tx3)">{{it.loai}}</span>
+              <span style="font-size: 12px; padding: 3px 10px; border-radius: 999px; background: {{it.lanLamBg}}; color: {{it.lanLamFg}}; font-weight: 500">{{it.lanLam}}</span>
+              <span style="font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--surface2); color: var(--tx3)">{{it.tuyen}}</span>
+            </span>
+          </button>
+        </sc-for>
+      </section>
+
+      <section aria-label="Chi tiết bài" style="flex: 999 1 560px; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 1px 2px var(--sh1); padding: 24px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 13px; color: var(--tx2)">{{cur.page}} · dự kiến {{cur.gio}}</span>
+            <h2 style="margin: 0; font-size: 22px; font-weight: 700; text-wrap: balance">{{cur.tieu}}</h2>
+          </div>
+          <span style="align-self: flex-start; font-size: 13px; padding: 6px 12px; border-radius: 999px; background: {{cur.lanBg}}; color: {{cur.lanFg}}; font-weight: 600">{{cur.lan}}</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px">
+          <div style="padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--tx2)">Làn</span><strong style="font-size: 14px">{{cur.lanLam}}</strong></div>
+          <div style="padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--tx2)">Tuyến</span><strong style="font-size: 14px">{{cur.tuyen}}</strong></div>
+          <div style="padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--tx2)">Định dạng</span><strong style="font-size: 14px">{{cur.dd}}</strong></div>
+          <div style="padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: var(--tx2)">Cảm xúc</span><strong style="font-size: 14px">{{cur.cx}}</strong></div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 24px">
+          <div aria-label="Khung xem trước video" style="flex: 0 0 220px; max-width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; background: #3C4043; color: #E8EAED; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; text-align: center; padding: 16px; box-sizing: border-box">
+            <svg aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#E8EAED" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4z"></path></svg>
+            <span style="font-size: 13px">{{cur.video}}</span>
+            <span style="font-size: 12px; color: var(--tx4)">Khung xem trước</span>
+          </div>
+          <div style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--tx2)">Chữ của bài</span>
+              <p style="margin: 0; font-size: 15px; line-height: 1.6; white-space: pre-line; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px">{{cur.chu}}</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--tx2)">Chân bài (code chèn, máy không viết)</span>
+              <p style="margin: 0; font-size: 13px; line-height: 1.55; color: var(--tx2); background: var(--surface2); border: 1px dashed var(--tx4); border-radius: 12px; padding: 10px 14px">{{cur.chan}}</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--tx2)">Bài này từ đâu</span>
+              <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--tx3)">{{cur.nguon}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--tx2)">Máy đã kiểm</span>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px">
+            <sc-for list="{{cur.kiem}}" as="k" hint-placeholder-count="4">
+              <div style="display: flex; gap: 10px; align-items: flex-start; font-size: 14px; padding: 10px 12px; border-radius: 10px; background: {{k.bg}}; color: {{k.fg}}">
+                <span style="font-weight: 700">{{k.dau}}</span><span>{{k.ten}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <sc-if value="{{coChan}}" hint-placeholder-val="{{ false }}">
+          <p role="alert" style="margin: 0; font-size: 14px; color: var(--err-ink); background: var(--err-bg); border: 1px solid var(--err-line); border-radius: 12px; padding: 12px 14px">Nút Duyệt bị khoá: bài có câu máy đã chặn. Bấm Sửa, chọn lý do, rồi bài được soạn lại.</p>
+        </sc-if>
+
+        <sc-if value="{{xemNut}}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 4px; border-top: 1px solid var(--line)">
+            <button type="button" class="btn btn-pri" disabled="{{coChan}}" onClick="{{duyet}}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="stroke: currentColor; margin-right: 8px; vertical-align: -3px"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Duyệt</button>
+            <button type="button" class="btn" onClick="{{sua}}">Sửa</button>
+            <button type="button" class="btn btn-xau" onClick="{{bo}}">Bỏ bài</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{dangChon}}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line)">
+            <span style="font-size: 15px; font-weight: 600">{{hoiLyDo}}</span>
+            <div role="group" aria-label="Lý do" style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{lyDo}}" as="l" hint-placeholder-count="5">
+                <button type="button" class="{{l.cls}}" aria-pressed="{{l.on}}" onClick="{{l.pick}}">{{l.ten}}</button>
+              </sc-for>
+            </div>
+            <sc-if value="{{laSua}}" hint-placeholder-val="{{ true }}">
+              <label for="huong" style="font-size: 13px; font-weight: 600; color: var(--tx3)">Hướng sửa (bắt buộc)</label>
+              <textarea id="huong" rows="3" style="font: 14px 'Roboto', system-ui, sans-serif; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line2); resize: vertical" placeholder="Ví dụ: đổi câu mở đầu cho gần giọng page hơn, bỏ câu cuối"></textarea>
+              <span style="font-size: 13px; color: var(--tx2)">Máy viết lại đúng theo hướng này, không đổi phần anh chị không nhắc tới. Không ghi hướng sửa thì chưa gửi được (chặn bằng code).</span>
+            </sc-if>
+            <label for="ghichu" style="font-size: 13px; color: var(--tx2)">Ghi thêm (không bắt buộc)</label>
+            <textarea id="ghichu" rows="2" style="font: 14px 'Roboto', system-ui, sans-serif; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line2); resize: vertical" placeholder="Ví dụ: bài này cần xem lại ảnh bìa"></textarea>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px">
+              <button type="button" class="btn btn-pri" disabled="{{chuaLyDo}}" onClick="{{gui}}">Gửi</button>
+              <button type="button" class="btn" onClick="{{huy}}">Huỷ</button>
+            </div>
+            <span style="font-size: 13px; color: var(--tx2)">Chưa chọn lý do thì chưa gửi được. Lý do được đếm để máy học page nào hay bị sửa vì gì.</span>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{daXong}}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 12px; background: var(--ok-bg); color: var(--ok-ink); font-size: 14px">
+            <span>{{thongBao}}</span>
+            <button type="button" class="btn" onClick="{{huy}}">Hoàn tác</button>
+          </div>
+        </sc-if>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+
+  ldTemaBanDau() {
+    try { var s = localStorage.getItem('ld-tema'); if (s === 'dark' || s === 'light') return s; } catch (e) {}
+    try { if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'; } catch (e) {}
+    return 'light';
+  }
+  renderVals() {
+    var self = this;
+    var v = self.renderVals0();
+    var t = self.state.tema || self.tema0 || 'light';
+    try { document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    v.tema = t;
+    v.doiTema = function () {
+      var n = t === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('ld-tema', n); } catch (e) {}
+      self.setState({ tema: n });
+    };
+    return v;
+  }
+  constructor(props) { super(props); this.tema0 = this.ldTemaBanDau(); var me = this; try { window.addEventListener('storage', function (e) { if (e.key === 'ld-tema' && (e.newValue === 'dark' || e.newValue === 'light')) me.setState({ tema: e.newValue }); }); } catch (e) {} this.state = { sel: 0, mode: 'xem', ly: null }; }
+  renderVals0() {
+    var self = this;
+    var OK = { dau: '✓', bg: 'var(--ok-bg)', fg: 'var(--ok-ink)' };
+    var CHAN = { dau: '✕', bg: 'var(--err-bg)', fg: 'var(--err-ink)' };
+    function k(t, ok) { var s = ok ? OK : CHAN; return { ten: t, dau: s.dau, bg: s.bg, fg: s.fg }; }
+    var NHAY = { lan: 'Nhạy cảm, cần người duyệt', lanBg: 'var(--warn-bg)', lanFg: 'var(--warn-ink)' };
+    var MAU = { lan: 'Làn an toàn, mẫu kiểm 20%', lanBg: 'var(--pri-bg)', lanFg: 'var(--pri-ink)' };
+    var QC = { lanLam: 'Chuyển đổi QC', lanLamBg: 'var(--pri-bg)', lanLamFg: 'var(--pri-ink)' };
+    var SD = { lanLam: 'Social Daily', lanLamBg: 'var(--ok-bg)', lanLamFg: 'var(--ok-ink)' };
+    var CHAN_SG = 'Hotline và địa chỉ cơ sở Sài Gòn lấy từ mẫu chân bài cố định của page này.';
+    var CHAN_AT = 'Hotline và địa chỉ cơ sở An Thịnh lấy từ mẫu chân bài cố định của page này.';
+    var ds = [
+      Object.assign({ tuyen: 'Chuyên gia', dd: 'Reels', cx: 'Tin cậy', chan: CHAN_SG }, QC, { page: 'SG · Bác sĩ giải đáp', gio: 'T2 19:30', loai: 'Bổ trợ QC · Reels',
+        tieu: '3 câu nên hỏi bác sĩ ở buổi khám hiếm muộn đầu tiên', video: 'Reels 22 giây',
+        chu: 'Buổi khám đầu thường ngắn. Ghi sẵn 3 câu này để không quên:\n1. Hai vợ chồng cần làm xét nghiệm gì trước?\n2. Bao lâu thì có kết quả?\n3. Lần hẹn sau cần mang theo giấy tờ gì?\nCần tư vấn thêm, nhắn tin cho page.',
+        nguon: 'Bổ trợ cho video quảng cáo «Bác sĩ trả lời trong 60 giây» đang chạy ở Sài Gòn (bài thứ 1 / tối đa 2 trong tuần). Ý lấy từ thẻ «Chuẩn bị buổi khám đầu» trong file Nội dung tháng 11.',
+        kiem: [k('Không hứa kết quả điều trị', true), k('Không có tên hay ảnh người bệnh', true), k('Không có giá chưa xác nhận', true), k('Trùng bài cũ dưới 30%', true)] }, NHAY),
+      Object.assign({ tuyen: 'Dịch vụ chính', dd: 'Ảnh + chữ', cx: 'Đồng cảm', chan: CHAN_SG }, SD, { page: 'SG · Hỏi đáp hiếm muộn', gio: 'T2 12:00', loai: 'Theo file · Ảnh',
+        tieu: 'Ăn uống thế nào trong tháng chuẩn bị mang thai', video: 'Ảnh 4:5, 3 khung',
+        chu: 'Ba điều nhỏ dễ làm trong tháng chuẩn bị: ngủ đủ giờ, uống đủ nước, hạn chế đồ uống có cồn.\nMỗi người một khác, hãy hỏi bác sĩ trước khi bổ sung thuốc hay thực phẩm chức năng.',
+        nguon: 'Theo file Nội dung tháng 11, mục «Sống khoẻ trước khi mang thai», đoạn 2. Rơi vào mẫu kiểm 20% hôm nay.',
+        kiem: [k('Không hứa kết quả điều trị', true), k('Không có tên hay ảnh người bệnh', true), k('Có câu khuyên hỏi bác sĩ', true), k('Trùng bài cũ dưới 30%', true)] }, MAU),
+      Object.assign({ tuyen: 'Công nghệ', dd: 'Reels', cx: 'Hy vọng', chan: CHAN_AT }, SD, { page: 'AT · Kiến thức sinh sản', gio: 'T3 08:00', loai: 'Thường · Reels',
+        tieu: 'Vì sao có cặp đôi cần làm nhiều lần chuyển phôi', video: 'Reels 30 giây',
+        chu: 'Mỗi cơ thể phản ứng khác nhau. Ở trung tâm, tỉ lệ thành công lên tới 70% chỉ sau một lần.\nHãy trao đổi với bác sĩ để hiểu rõ trường hợp của mình.',
+        nguon: 'Thẻ «Hỏi đáp chuyển phôi» trong file Nội dung tháng 11. Câu về tỉ lệ không có trong file gốc.',
+        kiem: [k('Có câu hứa tỉ lệ thành công: máy đã chặn', false), k('Câu về tỉ lệ không có trong file gốc', false), k('Không có tên hay ảnh người bệnh', true), k('Trùng bài cũ dưới 30%', true)] }, NHAY),
+      Object.assign({ tuyen: 'Bệnh viện', dd: 'Reels', cx: 'Tin cậy', chan: CHAN_SG }, SD, { page: 'SG · Hành trình làm mẹ', gio: 'T3 19:30', loai: 'Thường · Reels',
+        tieu: 'Một ngày đi khám: từ lúc đến tới lúc về', video: 'Reels 18 giây',
+        chu: 'Đến quầy lễ tân, lấy số, gặp bác sĩ, làm xét nghiệm, hẹn lần sau.\nPage quay lại từng bước để bạn yên tâm trước khi đến.',
+        nguon: 'Ý từ thẻ «Quy trình khám đầu» của file Nội dung tháng 11. Rơi vào mẫu kiểm 20%.',
+        kiem: [k('Không hứa kết quả điều trị', true), k('Không có mặt người bệnh trong video', true), k('Không có giá chưa xác nhận', true), k('Trùng bài cũ dưới 30%', true)] }, MAU),
+      Object.assign({ tuyen: 'Dịch vụ chính', dd: 'Reels', cx: 'Đồng cảm', chan: CHAN_AT }, QC, { page: 'AT · Gia đình nhỏ', gio: 'T4 12:00', loai: 'Bổ trợ QC · Reels',
+        tieu: 'Những câu hay được hỏi sau buổi tư vấn đầu', video: 'Reels 25 giây',
+        chu: 'Có nên làm xét nghiệm cho cả hai vợ chồng không? Có.\nCó cần nghỉ làm dài ngày không? Thường là không, bác sĩ sẽ hẹn theo lịch của bạn.',
+        nguon: 'Bổ trợ cho video quảng cáo «Tư vấn hiếm muộn miễn phí» đang chạy ở An Thịnh (bài thứ 2 / tối đa 2 trong tuần).',
+        kiem: [k('Không hứa kết quả điều trị', true), k('Không có tên hay ảnh người bệnh', true), k('Chữ «miễn phí» có trong file Ưu đãi đã xác nhận', true), k('Trùng bài cũ dưới 30%', true)] }, NHAY)
+    ];
+    var items = ds.map(function (d, i) {
+      var on = self.state.sel === i;
+      return { page: d.page, gio: d.gio, tieu: d.tieu, lan: d.lan, lanBg: d.lanBg, lanFg: d.lanFg, loai: d.loai, lanLam: d.lanLam, lanLamBg: d.lanLamBg, lanLamFg: d.lanLamFg, tuyen: d.tuyen,
+        on: on ? 'true' : 'false', cls: on ? 'muc muc-on' : 'muc', pick: function () { self.setState({ sel: i, mode: 'xem', ly: null }); } };
+    });
+    var cur = ds[self.state.sel];
+    var coChan = cur.kiem.some(function (x) { return x.dau === '✕'; });
+    var mode = self.state.mode;
+    var dsLy = mode === 'bo'
+      ? ['Trùng bài khác', 'Không hợp page', 'Sai thông tin', 'Nhạy cảm, không nên đăng', 'Khác']
+      : ['Sai thông tin', 'Giọng không hợp page', 'Câu bị máy chặn', 'Hình chưa đạt', 'Khác'];
+    var lyDo = dsLy.map(function (t) {
+      var on = self.state.ly === t;
+      return { ten: t, on: on ? 'true' : 'false', cls: on ? 'ly ly-on' : 'ly', pick: function () { self.setState({ ly: t }); } };
+    });
+    var thongBao = mode === 'xong-duyet' ? 'Đã duyệt. Bài vào lịch ' + cur.gio + ' (chạy bóng, chưa lên Facebook).'
+      : (mode === 'xong-sua' ? 'Đã gửi sửa với lý do «' + self.state.ly + '» và hướng sửa. Bài soạn lại sẽ quay về hàng chờ.'
+      : 'Đã bỏ bài với lý do «' + self.state.ly + '». Ô lịch này được soạn bài khác.');
+    return {
+      items: items, cur: cur, coChan: coChan,
+      xemNut: mode === 'xem', dangChon: mode === 'sua' || mode === 'bo', daXong: mode.indexOf('xong') === 0,
+      hoiLyDo: mode === 'bo' ? 'Vì sao bỏ bài này?' : 'Cần sửa chỗ nào?',
+      lyDo: lyDo, laSua: mode === 'sua', chuaLyDo: !self.state.ly, thongBao: thongBao,
+      duyet: function () { self.setState({ mode: 'xong-duyet' }); },
+      sua: function () { self.setState({ mode: 'sua', ly: null }); },
+      bo: function () { self.setState({ mode: 'bo', ly: null }); },
+      gui: function () { self.setState({ mode: self.state.mode === 'bo' ? 'xong-bo' : 'xong-sua' }); },
+      huy: function () { self.setState({ mode: 'xem', ly: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Chờ duyệt điện thoại</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+:root,.ld{--bg:#F8F9FA;--surface:#FFFFFF;--surface2:#F1F3F4;--line:#E8EAED;--line2:#DADCE0;--tx:#202124;--tx2:#5F6368;--tx3:#3C4043;--tx4:#70757A;--pri:#1A73E8;--on-pri:#FFFFFF;--pri-bg:#E8F0FE;--pri-ink:#1967D2;--pri-ink2:#174EA6;--pri-line:#AECBFA;--pri-ring:#D2E3FC;--warn-bg:#FEF7E0;--warn:#B06000;--warn-ink:#7A4100;--warn-ink2:#633400;--warn-line:#FDE293;--ok-bg:#E6F4EA;--ok:#188038;--ok-ink:#137333;--ok-line:#CEEAD6;--ok-line2:#A8DAB5;--err-bg:#FCE8E6;--err:#C5221F;--err-ink:#A50E0E;--err-line:#F6AEA9;--inv-bg:#3C4043;--sh1:rgba(60,64,67,.04);--sh2:rgba(60,64,67,.25);--sh3:rgba(60,64,67,.3);--sun:none;--moon:inline;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),.ld:not([data-theme="light"]){--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}}
+:root[data-theme="dark"],.ld[data-theme="dark"]{--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}
+.i-sun{display:var(--sun)}.i-moon{display:var(--moon)}
+.tema{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--tx2);cursor:pointer;flex:0 0 auto}
+.tema:hover{background:var(--surface2);color:var(--tx)}
+
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif}
+.num{font-variant-numeric:tabular-nums}
+.btn{width:100%;min-height:52px;border-radius:999px;font:600 16px 'Roboto',system-ui,sans-serif;cursor:pointer;border:1px solid var(--line2);background:var(--surface);color:var(--tx)}
+.btn-pri{background:var(--pri);border-color:var(--pri);color:var(--on-pri)}
+.btn-xau{color:var(--err);border-color:var(--err-line)}
+.ly{min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--tx3);font:500 14px 'Roboto',system-ui,sans-serif;cursor:pointer}
+.ly-on{background:var(--pri-bg);border-color:var(--pri);color:var(--pri-ink)}
+</style>
+</helmet>
+<div class="ld" data-theme="{{tema}}" style="width: 390px; height: 844px; box-sizing: border-box; background: var(--bg); display: flex; flex-direction: column; overflow: hidden">
+  <header style="background: var(--surface); color: var(--tx); border-bottom: 1px solid var(--line); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+    <a href="Duyet.dc.html" aria-label="Về danh sách" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; color: var(--tx2)">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+    </a>
+    <span style="font-weight: 500; font-size: 18px">Chờ duyệt</span>
+    <span style="display: inline-flex; align-items: center; gap: 4px"><span class="num" style="font-size: 14px; color: var(--tx2)">{{viTri}}</span><button type="button" class="tema" aria-label="Đổi giao diện sáng hoặc tối" title="Đổi giao diện sáng / tối" onClick="{{doiTema}}"><svg class="i-moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg><svg class="i-sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button></span>
+  </header>
+
+  <div onPointerDown="{{vuotDown}}" style="flex: 1 1 auto; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; touch-action: pan-y; transform: translateX({{vuotDx}}px); transition: {{vuotTrans}}; background: {{vuotNen}}">
+    <div role="status" style="font-size: 12px; line-height: 1.5; color: {{vuotMau}}; text-align: center; min-height: 18px">{{vuotGoiY}}</div>
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px">
+      <span style="font-size: 13px; color: var(--tx2)">{{cur.page}}</span>
+      <span class="num" style="font-size: 13px; color: var(--tx2)">{{cur.gio}}</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 6px">
+      <span style="font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--warn-bg); color: var(--warn-ink); font-weight: 600">{{cur.lan}}</span>
+      <span style="font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--pri-bg); color: var(--pri-ink); font-weight: 600">{{cur.lanLam}}</span>
+      <span style="font-size: 12px; padding: 4px 10px; border-radius: 999px; background: var(--surface2); color: var(--tx2); font-weight: 600">{{cur.tuyen}}</span>
+    </div>
+    <h1 style="margin: 0; font-size: 20px; line-height: 1.35; font-weight: 700">{{cur.tieu}}</h1>
+
+    <div aria-label="Khung xem trước video" style="width: 100%; height: 220px; border-radius: 14px; background: #3C4043; color: #E8EAED; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px">
+      <svg aria-hidden="true" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#E8EAED" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M10 8l6 4-6 4z"></path></svg>
+      <span style="font-size: 13px">{{cur.video}} · chạm để xem</span>
+    </div>
+
+    <p style="margin: 0; font-size: 15px; line-height: 1.6; white-space: pre-line; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px">{{cur.chu}}</p>
+
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <sc-for list="{{cur.kiem}}" as="k" hint-placeholder-count="3">
+        <div style="display: flex; gap: 8px; font-size: 14px; color: var(--ok-ink)"><span style="font-weight: 700">✓</span><span>{{k}}</span></div>
+      </sc-for>
+    </div>
+    <p style="margin: 0; font-size: 13px; color: var(--tx2); line-height: 1.5">{{cur.nguon}}</p>
+
+    <sc-if value="{{dangChon}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line)">
+        <span style="font-size: 15px; font-weight: 600">{{hoiLyDo}}</span>
+        <div role="group" aria-label="Lý do" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{lyDo}}" as="l" hint-placeholder-count="4">
+            <button type="button" class="{{l.cls}}" aria-pressed="{{l.on}}" onClick="{{l.pick}}">{{l.ten}}</button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{daXong}}" hint-placeholder-val="{{ false }}">
+      <div role="status" style="padding: 12px 14px; border-radius: 12px; background: var(--ok-bg); color: var(--ok-ink); font-size: 14px">{{thongBao}}</div>
+    </sc-if>
+  </div>
+
+  <footer style="padding: 12px 16px 20px; background: var(--surface); border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px">
+    <sc-if value="{{xemNut}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <button type="button" class="btn btn-pri" onClick="{{duyet}}">Duyệt</button>
+        <div style="display: flex; gap: 10px">
+          <button type="button" class="btn" onClick="{{sua}}">Sửa</button>
+          <button type="button" class="btn btn-xau" onClick="{{bo}}">Bỏ bài</button>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{dangChon}}" hint-placeholder-val="{{ false }}">
+      <div style="display: flex; gap: 10px">
+        <button type="button" class="btn btn-pri" disabled="{{chuaLyDo}}" onClick="{{gui}}">Gửi</button>
+        <button type="button" class="btn" onClick="{{huy}}">Huỷ</button>
+      </div>
+    </sc-if>
+    <sc-if value="{{daXong}}" hint-placeholder-val="{{ false }}">
+      <button type="button" class="btn btn-pri" onClick="{{tiep}}">Bài tiếp theo</button>
+    </sc-if>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+
+  ldTemaBanDau() {
+    try { var s = localStorage.getItem('ld-tema'); if (s === 'dark' || s === 'light') return s; } catch (e) {}
+    try { if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'; } catch (e) {}
+    return 'light';
+  }
+  renderVals() {
+    var self = this;
+    var v = self.renderVals0();
+    var t = self.state.tema || self.tema0 || 'light';
+    try { document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    v.tema = t;
+    v.doiTema = function () {
+      var n = t === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('ld-tema', n); } catch (e) {}
+      self.setState({ tema: n });
+    };
+    return v;
+  }
+  constructor(props) { super(props); this.tema0 = this.ldTemaBanDau(); var me = this; try { window.addEventListener('storage', function (e) { if (e.key === 'ld-tema' && (e.newValue === 'dark' || e.newValue === 'light')) me.setState({ tema: e.newValue }); }); } catch (e) {} this.state = { sel: 0, mode: 'xem', ly: null, dx: 0, keo: false }; }
+
+  vuotDown(e) {
+    var self = this;
+    if (self.state.mode !== 'xem' || !e || !e.currentTarget || (e.button && e.button > 0)) return;
+    var tg = e.target && e.target.closest ? e.target.closest('button,a') : null;
+    if (tg) return;
+    var win = e.currentTarget.ownerDocument.defaultView || window;
+    var x0 = e.clientX, y0 = e.clientY, ngang = false;
+    var di = function (ev) {
+      var dx = ev.clientX - x0, dy = ev.clientY - y0;
+      if (!ngang) {
+        if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+        ngang = true;
+      }
+      self.setState({ keo: true, dx: Math.max(-160, Math.min(160, dx)) });
+    };
+    var thoi = function () {
+      win.removeEventListener('pointermove', di);
+      win.removeEventListener('pointerup', xong);
+      win.removeEventListener('pointercancel', huy);
+    };
+    var huy = function () { thoi(); self.setState({ keo: false, dx: 0 }); };
+    var xong = function () {
+      thoi();
+      var dx = self.state.dx || 0;
+      if (ngang && dx > 90) self.setState({ keo: false, dx: 0, mode: 'xong-duyet' });
+      else if (ngang && dx < -90) self.setState({ keo: false, dx: 0, mode: 'bo', ly: null });
+      else self.setState({ keo: false, dx: 0 });
+    };
+    win.addEventListener('pointermove', di);
+    win.addEventListener('pointerup', xong);
+    win.addEventListener('pointercancel', huy);
+  }
+  renderVals0() {
+    var self = this;
+    var ds = [
+      { page: 'SG · Bác sĩ giải đáp', gio: 'T2 19:30', lan: 'Nhạy cảm, cần người duyệt', lanLam: 'Làn Chuyển đổi QC', tuyen: 'Tuyến Chuyên gia', video: 'Reels 22 giây',
+        tieu: '3 câu nên hỏi bác sĩ ở buổi khám hiếm muộn đầu tiên',
+        chu: 'Buổi khám đầu thường ngắn. Ghi sẵn 3 câu này để không quên:\n1. Hai vợ chồng cần làm xét nghiệm gì trước?\n2. Bao lâu thì có kết quả?\n3. Lần hẹn sau cần mang theo giấy tờ gì?',
+        nguon: 'Bổ trợ cho video quảng cáo «Bác sĩ trả lời trong 60 giây» (bài 1 / tối đa 2 trong tuần).',
+        kiem: ['Không hứa kết quả điều trị', 'Không có tên hay ảnh người bệnh', 'Không có giá chưa xác nhận'] },
+      { page: 'AT · Gia đình nhỏ', gio: 'T4 12:00', lan: 'Nhạy cảm, cần người duyệt', lanLam: 'Làn Social Daily', tuyen: 'Tuyến Dịch vụ chính', video: 'Reels 25 giây',
+        tieu: 'Những câu hay được hỏi sau buổi tư vấn đầu',
+        chu: 'Có nên làm xét nghiệm cho cả hai vợ chồng không? Có.\nCó cần nghỉ làm dài ngày không? Thường là không, bác sĩ sẽ hẹn theo lịch của bạn.',
+        nguon: 'Bổ trợ cho video quảng cáo «Tư vấn hiếm muộn miễn phí» (bài 2 / tối đa 2 trong tuần).',
+        kiem: ['Không hứa kết quả điều trị', 'Không có tên hay ảnh người bệnh', 'Chữ «miễn phí» có trong file Ưu đãi đã xác nhận'] }
+    ];
+    var cur = ds[self.state.sel % ds.length];
+    var mode = self.state.mode;
+    var dsLy = mode === 'bo' ? ['Trùng bài khác', 'Không hợp page', 'Sai thông tin', 'Khác'] : ['Sai thông tin', 'Giọng không hợp page', 'Hình chưa đạt', 'Khác'];
+    var lyDo = dsLy.map(function (t) {
+      var on = self.state.ly === t;
+      return { ten: t, on: on ? 'true' : 'false', cls: on ? 'ly ly-on' : 'ly', pick: function () { self.setState({ ly: t }); } };
+    });
+    var thongBao = mode === 'xong-duyet' ? 'Đã duyệt. Bài vào lịch ' + cur.gio + '.'
+      : (mode === 'xong-sua' ? 'Đã gửi sửa: «' + self.state.ly + '».' : 'Đã bỏ bài: «' + self.state.ly + '».');
+    return {
+      vuotDown: function (e) { self.vuotDown(e); },
+      vuotDx: self.state.dx || 0,
+      vuotTrans: self.state.keo ? 'none' : 'transform 0.2s ease, background 0.2s ease',
+      vuotNen: (self.state.dx || 0) > 40 ? 'var(--ok-bg)' : ((self.state.dx || 0) < -40 ? 'var(--err-bg)' : 'transparent'),
+      vuotMau: (self.state.dx || 0) > 40 ? 'var(--ok-ink)' : ((self.state.dx || 0) < -40 ? 'var(--err-ink)' : 'var(--tx3)'),
+      vuotGoiY: mode !== 'xem' ? '' : ((self.state.dx || 0) > 90 ? 'Thả tay để DUYỆT bài' : ((self.state.dx || 0) < -90 ? 'Thả tay để BỎ bài' : 'Vuốt phải để duyệt, vuốt trái để bỏ bài, hoặc bấm nút bên dưới')),
+      cur: cur, viTri: (self.state.sel % ds.length + 1) + ' / 19',
+      xemNut: mode === 'xem', dangChon: mode === 'sua' || mode === 'bo', daXong: mode.indexOf('xong') === 0,
+      hoiLyDo: mode === 'bo' ? 'Vì sao bỏ bài này?' : 'Cần sửa chỗ nào?',
+      lyDo: lyDo, chuaLyDo: !self.state.ly, thongBao: thongBao,
+      duyet: function () { self.setState({ mode: 'xong-duyet' }); },
+      sua: function () { self.setState({ mode: 'sua', ly: null }); },
+      bo: function () { self.setState({ mode: 'bo', ly: null }); },
+      gui: function () { self.setState({ mode: self.state.mode === 'bo' ? 'xong-bo' : 'xong-sua' }); },
+      huy: function () { self.setState({ mode: 'xem', ly: null }); },
+      tiep: function () { self.setState({ sel: self.state.sel + 1, mode: 'xem', ly: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Lịch đăng tuần</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+:root,.ld{--bg:#F8F9FA;--surface:#FFFFFF;--surface2:#F1F3F4;--line:#E8EAED;--line2:#DADCE0;--tx:#202124;--tx2:#5F6368;--tx3:#3C4043;--tx4:#70757A;--pri:#1A73E8;--on-pri:#FFFFFF;--pri-bg:#E8F0FE;--pri-ink:#1967D2;--pri-ink2:#174EA6;--pri-line:#AECBFA;--pri-ring:#D2E3FC;--warn-bg:#FEF7E0;--warn:#B06000;--warn-ink:#7A4100;--warn-ink2:#633400;--warn-line:#FDE293;--ok-bg:#E6F4EA;--ok:#188038;--ok-ink:#137333;--ok-line:#CEEAD6;--ok-line2:#A8DAB5;--err-bg:#FCE8E6;--err:#C5221F;--err-ink:#A50E0E;--err-line:#F6AEA9;--inv-bg:#3C4043;--sh1:rgba(60,64,67,.04);--sh2:rgba(60,64,67,.25);--sh3:rgba(60,64,67,.3);--sun:none;--moon:inline;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),.ld:not([data-theme="light"]){--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}}
+:root[data-theme="dark"],.ld[data-theme="dark"]{--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}
+.i-sun{display:var(--sun)}.i-moon{display:var(--moon)}
+.tema{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--tx2);cursor:pointer;flex:0 0 auto}
+.tema:hover{background:var(--surface2);color:var(--tx)}
+
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif}
+a{color:var(--pri)}a:hover{color:var(--pri-ink2)}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;box-sizing:border-box;padding:0 16px;border-radius:999px;color:var(--tx3);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.1px}
+.tab:hover{color:var(--tx);background:var(--surface2)}
+.tab-on,.tab-on:hover{color:var(--pri-ink);background:var(--pri-bg)}
+.dem{font-size:12px;font-weight:500;background:var(--warn);color:var(--on-pri);border-radius:999px;padding:1px 8px;font-variant-numeric:tabular-nums}
+.seg{min-height:40px;padding:0 18px;border:0;border-radius:999px;background:transparent;color:var(--tx2);font:500 14px 'Roboto',system-ui,sans-serif;cursor:pointer}
+.seg-on{background:var(--pri-bg);color:var(--pri-ink);box-shadow:none}
+.num{font-variant-numeric:tabular-nums}
+</style>
+</helmet>
+<div class="ld" data-theme="{{tema}}" style="min-height: 100vh; background: var(--bg)">
+  <header style="background: var(--surface); border-bottom: 1px solid var(--line)">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+      <a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; margin-right: 8px">
+        <svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><rect x="2" y="2" width="30" height="30" rx="8" fill="#1A73E8"></rect><rect x="8" y="11" width="18" height="15" rx="3" fill="#FFFFFF"></rect><rect x="8" y="11" width="18" height="5" rx="2.5" fill="#AECBFA"></rect><rect x="12" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><rect x="19.4" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><circle cx="13.5" cy="21" r="1.7" fill="#1A73E8"></circle><circle cx="20.5" cy="21" r="1.7" fill="#188038"></circle></svg>
+        <span style="font-size: 20px; color: var(--tx2); font-weight: 400">jacobase <span style="color: var(--tx); font-weight: 500">Lịch đăng</span></span>
+      </a>
+      <nav aria-label="Các mục Lịch đăng" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+        <a class="tab tab-on" href="Main.dc.html" aria-current="page">Lịch đăng</a>
+        <a class="tab" href="Brief.dc.html">Phiếu brief</a>
+        <a class="tab" href="Duyet.dc.html">Chờ duyệt <span class="dem">42</span></a>
+        <a class="tab" href="UuDai.dc.html">Ưu đãi <span class="dem">3</span></a>
+        <a class="tab" href="Kho.dc.html">Kho nội dung</a>
+        <a class="tab" href="HieuQua.dc.html">Hiệu quả</a>
+      </nav>
+      <label style="display: flex; align-items: center; gap: 10px; flex: 0 1 260px; min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; background: var(--surface2); cursor: text">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--tx2)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Tìm page, bài, brief" placeholder="Tìm page, bài, brief" style="flex: 1 1 auto; min-width: 0; border: 0; background: transparent; outline: 0; font: 400 14px 'Roboto', system-ui, sans-serif; color: var(--tx)">
+      </label>
+      <a class="tab" href="QuanTri.dc.html">Quản trị</a>
+      <button type="button" class="tema" aria-label="Đổi giao diện sáng hoặc tối" title="Đổi giao diện sáng / tối" onClick="{{doiTema}}"><svg class="i-moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg><svg class="i-sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button>
+      <span title="Quản lý" aria-label="Tài khoản Quản lý" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--pri-bg); color: var(--pri-ink); font-weight: 500; font-size: 15px">Q</span>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+    <div role="status" style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; background: var(--warn-bg); border: 1px solid var(--warn-line); color: var(--warn-ink2); border-radius: 14px; padding: 14px 18px; font-size: 14px">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--warn)"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6"></path><path d="M12 17h.01"></path></svg>
+      <strong style="font-weight: 600">Đang chạy bóng:</strong>
+      <span>bài được soạn và xếp lịch, nhưng chưa hẹn giờ lên Facebook. Mọi số trên trang là số mẫu.</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <span style="font-size: 14px; color: var(--tx2)">Chào Quản lý, tuần này có <strong style="color: var(--warn); font-weight: 500">42 bài</strong> đang chờ anh chị duyệt.</span>
+        <h1 style="margin: 0; font-size: 28px; font-weight: 500; text-wrap: balance">Lịch đăng tuần 23/11 – 29/11</h1>
+        <p style="margin: 0; color: var(--tx2); font-size: 14px">50 page · 3 bài mỗi page mỗi ngày · ưu tiên Reels. Đây là lịch tổng thể của app, không dùng Google Sheet nữa.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+        <a href="Brief.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px 0 16px; border-radius: 999px; background: var(--pri); color: var(--on-pri); text-decoration: none; font-weight: 500; box-shadow: 0 1px 3px var(--sh3); font-size: 14px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" style="stroke: var(--on-pri); margin-right: 8px"><path d="M12 5v14M5 12h14"></path></svg>Soạn brief mới</a>
+        <a href="SuaSauDang.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line2); color: var(--tx); text-decoration: none; font-weight: 600; font-size: 14px">Sửa bài đã đăng</a>
+      </div>
+      <div role="group" aria-label="Chọn viện" style="display: inline-flex; gap: 4px; padding: 4px; background: var(--surface2); border-radius: 999px">
+        <sc-for list="{{vienList}}" as="v" hint-placeholder-count="3">
+          <button type="button" class="{{v.cls}}" aria-pressed="{{v.on}}" onClick="{{v.pick}}">{{v.ten}}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+      <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px var(--sh1)">
+        <div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--pri-bg); flex: 0 0 auto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--pri)"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg></span><span style="font-size: 13px; color: var(--tx2); font-weight: 500">Bài trong tuần</span></div>
+        <span class="num" style="font-size: 30px; font-weight: 700">1.050</span>
+        <span style="font-size: 13px; color: var(--tx2)">50 page × 3 bài × 7 ngày</span>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px var(--sh1)">
+        <div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--warn-bg); flex: 0 0 auto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--warn)"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><span style="font-size: 13px; color: var(--tx2); font-weight: 500">Chờ người duyệt</span></div>
+        <span class="num" style="font-size: 30px; font-weight: 700; color: var(--warn)">42</span>
+        <a href="Duyet.dc.html" style="font-size: 13px">Mở hàng chờ duyệt</a>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px var(--sh1)">
+        <div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--ok-bg); flex: 0 0 auto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--ok)"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg></span><span style="font-size: 13px; color: var(--tx2); font-weight: 500">Làn an toàn, tự lên 17:00</span></div>
+        <span class="num" style="font-size: 30px; font-weight: 700; color: var(--pri)">958</span>
+        <span style="font-size: 13px; color: var(--tx2)">Người xem mẫu 20% số bài này</span>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px var(--sh1)">
+        <div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--pri-bg); flex: 0 0 auto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--pri)"><path d="M5 6h14M5 12h14M5 18h14"></path></svg></span><span style="font-size: 13px; color: var(--tx2); font-weight: 500">Hai làn trong tuần</span></div>
+        <span class="num" style="font-size: 30px; font-weight: 700">210 <span style="font-size: 16px; font-weight: 500; color: var(--tx2)">+ 840</span></span>
+        <span style="font-size: 13px; color: var(--tx2)">Chuyển đổi QC (người điền brief) + Social Daily (máy đề xuất)</span>
+      </div>
+      <div style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 1px 2px var(--sh1)">
+        <div style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--err-bg); flex: 0 0 auto"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--err)"><path d="M20 12l-8 8-9-9V4h7z"></path><circle cx="7.5" cy="7.5" r="1"></circle></svg></span><span style="font-size: 13px; color: var(--tx2); font-weight: 500">Ưu đãi chờ xác nhận</span></div>
+        <span class="num" style="font-size: 30px; font-weight: 700">3</span>
+        <span style="font-size: 13px; color: var(--tx2)">Không bao giờ tự lên</span>
+      </div>
+    </div>
+
+    <section aria-label="Lịch theo page" style="background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 1px 2px var(--sh1); display: flex; flex-direction: column">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--line)">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px" aria-label="Lọc loại bài">
+          <span style="font-size: 13px; color: var(--tx2); align-self: center">Làn:</span>
+          <span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--pri-bg); color: var(--pri); font-weight: 500">Chuyển đổi QC</span>
+          <span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--pri-bg); color: var(--pri); font-weight: 500">Social Daily</span>
+          <span style="font-size: 13px; color: var(--tx2); align-self: center; margin-left: 8px">Loại bài:</span>
+          <span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--pri-bg); color: var(--pri); font-weight: 500">Thường</span>
+          <span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--pri-bg); color: var(--pri); font-weight: 500">Bổ trợ quảng cáo</span>
+          <span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--pri-bg); color: var(--pri); font-weight: 500">Theo file</span>
+          <span style="font-size: 13px; padding: 6px 12px; border-radius: 999px; background: var(--pri-bg); color: var(--pri); font-weight: 500">Ưu đãi</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 13px; color: var(--tx2)">
+          <span><strong>QC</strong> = làn Chuyển đổi QC · <strong>SD</strong> = làn Social Daily</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: var(--pri-bg); border: 1px solid var(--pri)"></span>Tự lên 17:00</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: var(--warn-bg); border: 1px solid var(--warn)"></span>Chờ duyệt</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: var(--ok-bg); border: 1px solid var(--ok)"></span>Người đã duyệt</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: var(--tx3)"></span>Ưu đãi, khoá</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 3px; background: var(--err-bg); border: 1px solid var(--err)"></span>Đã bỏ</span>
+        </div>
+      </div>
+      <div style="padding: 10px 20px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; border-bottom: 1px solid var(--line); background: var(--surface2)">
+        <span role="status" style="flex: 1 1 320px; font-size: 13px; color: var(--tx3); line-height: 1.5">{{ghiChu}}</span>
+        <button type="button" class="seg" disabled="{{chuaLichSu}}" onClick="{{hoanTac}}" style="opacity: {{moHoanTac}}">Hoàn tác</button>
+        <button type="button" class="seg" disabled="{{chuaLichSu}}" onClick="{{datLai}}" style="opacity: {{moHoanTac}}">Đặt lại lịch mẫu</button>
+      </div>
+      <div style="overflow-x: auto">
+        <div style="min-width: 1180px">
+          <div style="display: grid; grid-template-columns: 230px repeat(7, minmax(0, 1fr)); border-bottom: 1px solid var(--line); background: var(--bg)">
+            <div style="padding: 10px 16px; font-size: 12px; font-weight: 600; color: var(--tx2); letter-spacing: .4px; text-transform: uppercase">Page</div>
+            <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+              <div style="padding: 10px 12px; font-size: 13px; font-weight: 600; color: var(--tx); border-left: 1px solid var(--line)">{{d.ten}} <span style="font-weight: 400; color: var(--tx2)">{{d.ngay}}</span></div>
+            </sc-for>
+          </div>
+          <sc-for list="{{pages}}" as="p" hint-placeholder-count="8">
+            <div style="display: grid; grid-template-columns: 230px repeat(7, minmax(0, 1fr)); border-bottom: 1px solid var(--line)">
+              <div style="padding: 12px 16px; display: flex; flex-direction: column; gap: 2px">
+                <span style="font-size: 14px; font-weight: 600">{{p.ten}}</span>
+                <span class="num" style="font-size: 12px; color: var(--tx2)">{{p.vien}} · {{p.theoDoi}} người theo dõi</span>
+              </div>
+              <sc-for list="{{p.cells}}" as="c" hint-placeholder-count="7">
+                <div style="padding: 8px; display: flex; flex-direction: column; gap: 4px; border-left: 1px solid var(--line)">
+                  <sc-for list="{{c.slots}}" as="s" hint-placeholder-count="3">
+                    <div data-slot="{{s.key}}" title="Kéo sang ô khác để đổi lịch" onPointerDown="{{s.down}}" style="display: flex; justify-content: space-between; gap: 6px; font-size: 12px; line-height: 16px; padding: 4px 8px; border-radius: 6px; background: {{s.bg}}; color: {{s.fg}}; border: 1px solid {{s.bd}}; text-decoration-line: {{s.gach}}; cursor: grab; touch-action: none; user-select: none; box-shadow: {{s.vien}}; opacity: {{s.mo}}"><span>{{s.loai}}</span><span class="num">{{s.gio}}</span></div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="padding: 14px 20px; font-size: 13px; color: var(--tx2); display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between">
+        <span>Đang hiện {{soPage}} / 50 page. Kéo một ô sang ô khác để đổi chỗ (lịch mẫu, tải lại là về như cũ). Muốn đưa lịch đang có trong Google Sheet cũ vào app một lần thì bấm «Nhập từ Sheet cũ» (đề xuất của em, anh duyệt thì mới làm).</span>
+        <a href="#">Xem thêm page</a>
+      </div>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+class Component extends DCLogic {
+
+  ldTemaBanDau() {
+    try { var s = localStorage.getItem('ld-tema'); if (s === 'dark' || s === 'light') return s; } catch (e) {}
+    try { if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'; } catch (e) {}
+    return 'light';
+  }
+  renderVals() {
+    var self = this;
+    var v = self.renderVals0();
+    var t = self.state.tema || self.tema0 || 'light';
+    try { document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    v.tema = t;
+    v.doiTema = function () {
+      var n = t === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('ld-tema', n); } catch (e) {}
+      self.setState({ tema: n });
+    };
+    return v;
+  }
+  constructor(props) { super(props); this.tema0 = this.ldTemaBanDau(); var me = this; try { window.addEventListener('storage', function (e) { if (e.key === 'ld-tema' && (e.newValue === 'dark' || e.newValue === 'light')) me.setState({ tema: e.newValue }); }); } catch (e) {} this.state = { vien: 'tat', ovr: {}, lichSu: [], keo: null, tren: null, chon: null, ghiChu: '' }; }
+
+  goc(pi, di, si) {
+    var k = (pi * 7 + di * 3 + si * 5) % 13;
+    var tt = k < 9 ? 'tu' : (k < 11 ? 'cho' : (k === 11 ? 'duyet' : 'bo'));
+    var loai = si === 1 && (pi + di) % 2 === 0 ? 'Bổ trợ' : (si === 2 && di % 3 === 0 ? 'Theo file' : 'Reels');
+    var lan = (loai === 'Bổ trợ' || (si === 0 && (pi + di) % 5 === 0)) ? 'QC' : 'SD';
+    if (si === 0 && di === 4 && pi % 3 === 0) { tt = 'uudai'; loai = 'Ưu đãi'; lan = 'QC'; }
+    if (tt === 'cho' && loai === 'Reels') { loai = 'Nhạy cảm'; }
+    return { tt: tt, loai: lan + ' · ' + loai };
+  }
+  nhan(key) {
+    var p = key.split('|');
+    var ten = ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'][+p[1]];
+    var gio = ['08:00', '12:00', '19:30'][+p[2]];
+    var pages = ['SG · Hỏi đáp hiếm muộn', 'SG · Hành trình làm mẹ', 'SG · Bác sĩ giải đáp', 'SG · Sống khoẻ sinh sản', 'AT · Kiến thức sinh sản', 'AT · Gia đình nhỏ', 'AT · Góc chuyên gia', 'AT · Mẹ bầu sau hỗ trợ'];
+    return pages[+p[0]] + ', ' + ten + ' ' + gio;
+  }
+  batDau(e, key) {
+    var self = this;
+    if (!e || !e.currentTarget || (e.button && e.button > 0)) return;
+    var doc = e.currentTarget.ownerDocument, win = doc.defaultView || window;
+    var x0 = e.clientX, y0 = e.clientY, daKeo = false;
+    var duoi = function (ev) {
+      var el = doc.elementFromPoint(ev.clientX, ev.clientY);
+      var o = el && el.closest ? el.closest('[data-slot]') : null;
+      return o ? o.getAttribute('data-slot') : null;
+    };
+    var tren = function (ev) {
+      if (!daKeo && Math.abs(ev.clientX - x0) + Math.abs(ev.clientY - y0) < 6) return;
+      daKeo = true;
+      self.setState({ keo: key, tren: duoi(ev), ghiChu: 'Đang kéo «' + self.nhan(key) + '». Thả vào ô muốn đổi chỗ, thả ra ngoài là huỷ.' });
+    };
+    var thoi = function () {
+      win.removeEventListener('pointermove', tren);
+      win.removeEventListener('pointerup', xong);
+      win.removeEventListener('pointercancel', huy);
+    };
+    var huy = function () { thoi(); self.setState({ keo: null, tren: null, ghiChu: 'Đã huỷ, lịch giữ nguyên.' }); };
+    var xong = function (ev) {
+      thoi();
+      if (!daKeo) { self.setState({ chon: key, keo: null, tren: null, ghiChu: 'Đã chọn «' + self.nhan(key) + '». Kéo sang ô khác để đổi chỗ.' }); return; }
+      var k = duoi(ev);
+      if (!k || k === key) { self.setState({ keo: null, tren: null, ghiChu: 'Đã huỷ, lịch giữ nguyên.' }); return; }
+      var cu = self.state.ovr || {};
+      var a = cu[key] || (function () { var q = key.split('|'); return self.goc(+q[0], +q[1], +q[2]); })();
+      var b = cu[k] || (function () { var q = k.split('|'); return self.goc(+q[0], +q[1], +q[2]); })();
+      var moi = Object.assign({}, cu); moi[key] = b; moi[k] = a;
+      var ls = (self.state.lichSu || []).concat([cu]).slice(-20);
+      self.setState({ ovr: moi, lichSu: ls, keo: null, tren: null, chon: k,
+        ghiChu: 'Đã đổi chỗ: «' + self.nhan(key) + '» ⇄ «' + self.nhan(k) + '». Bấm Hoàn tác nếu nhầm.' });
+    };
+    win.addEventListener('pointermove', tren);
+    win.addEventListener('pointerup', xong);
+    win.addEventListener('pointercancel', huy);
+  }
+  renderVals0() {
+    var self = this;
+    var vienDs = [{ id: 'tat', ten: 'Cả hai viện' }, { id: 'SG', ten: 'Sài Gòn' }, { id: 'AT', ten: 'An Thịnh' }];
+    var vienList = vienDs.map(function (v) {
+      var on = self.state.vien === v.id;
+      return { ten: v.ten, on: on ? 'true' : 'false', cls: on ? 'seg seg-on' : 'seg', pick: function () { self.setState({ vien: v.id }); } };
+    });
+    var days = [
+      { ten: 'T2', ngay: '23/11' }, { ten: 'T3', ngay: '24/11' }, { ten: 'T4', ngay: '25/11' },
+      { ten: 'T5', ngay: '26/11' }, { ten: 'T6', ngay: '27/11' }, { ten: 'T7', ngay: '28/11' }, { ten: 'CN', ngay: '29/11' }
+    ];
+    var ds = [
+      { ten: 'SG · Hỏi đáp hiếm muộn', vien: 'SG', theoDoi: '18.400' },
+      { ten: 'SG · Hành trình làm mẹ', vien: 'SG', theoDoi: '9.250' },
+      { ten: 'SG · Bác sĩ giải đáp', vien: 'SG', theoDoi: '31.900' },
+      { ten: 'SG · Sống khoẻ sinh sản', vien: 'SG', theoDoi: '6.120' },
+      { ten: 'AT · Kiến thức sinh sản', vien: 'AT', theoDoi: '12.700' },
+      { ten: 'AT · Gia đình nhỏ', vien: 'AT', theoDoi: '4.880' },
+      { ten: 'AT · Góc chuyên gia', vien: 'AT', theoDoi: '22.300' },
+      { ten: 'AT · Mẹ bầu sau hỗ trợ', vien: 'AT', theoDoi: '7.640' }
+    ];
+    var TT = {
+      tu: { bg: 'var(--pri-bg)', fg: 'var(--pri-ink)', bd: 'var(--pri-ring)', gach: 'none' },
+      cho: { bg: 'var(--warn-bg)', fg: 'var(--warn-ink)', bd: 'var(--warn-line)', gach: 'none' },
+      duyet: { bg: 'var(--ok-bg)', fg: 'var(--ok-ink)', bd: 'var(--ok-line)', gach: 'none' },
+      uudai: { bg: 'var(--tx3)', fg: 'var(--surface)', bd: 'var(--tx3)', gach: 'none' },
+      bo: { bg: 'var(--err-bg)', fg: 'var(--err-ink)', bd: 'var(--err-line)', gach: 'line-through' }
+    };
+    var gio = ['08:00', '12:00', '19:30'];
+    var ovr = self.state.ovr || {};
+    var pages = [];
+    ds.forEach(function (p, pi) {
+      if (!(self.state.vien === 'tat' || p.vien === self.state.vien)) return;
+      var vienTen = p.vien === 'SG' ? 'Sài Gòn' : 'An Thịnh';
+      var cells = days.map(function (d, di) {
+        var slots = [0, 1, 2].map(function (si) {
+          var key = pi + '|' + di + '|' + si;
+          var g = ovr[key] || self.goc(pi, di, si);
+          var t = TT[g.tt];
+          var tren = self.state.tren === key && self.state.keo && self.state.keo !== key;
+          var chon = self.state.chon === key;
+          return {
+            key: key, loai: g.loai, gio: gio[si], bg: t.bg, fg: t.fg, bd: t.bd, gach: t.gach,
+            vien: tren ? '0 0 0 3px var(--pri)' : (chon ? '0 0 0 2px var(--tx)' : 'none'),
+            mo: self.state.keo === key ? '0.35' : '1',
+            down: function (e) { self.batDau(e, key); }
+          };
+        });
+        return { slots: slots };
+      });
+      pages.push({ ten: p.ten, vien: vienTen, theoDoi: p.theoDoi, cells: cells });
+    });
+    var coLichSu = (self.state.lichSu || []).length > 0;
+    return {
+      vienList: vienList, days: days, pages: pages, soPage: pages.length,
+      ghiChu: self.state.ghiChu || 'Lịch mẫu. Nhấn giữ một ô rồi kéo thả sang ô khác để đổi chỗ hai bài. Bấm một ô để chọn.',
+      chuaLichSu: !coLichSu, moHoanTac: coLichSu ? '1' : '0.45',
+      hoanTac: function () {
+        var h = (self.state.lichSu || []).slice();
+        if (!h.length) return;
+        var truoc = h.pop();
+        self.setState({ ovr: truoc, lichSu: h, ghiChu: 'Đã hoàn tác bước đổi chỗ gần nhất.', chon: null });
+      },
+      datLai: function () { self.setState({ ovr: {}, lichSu: [], ghiChu: 'Đã đặt lại lịch mẫu.', chon: null }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Sửa bài đã đăng</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+:root,.ld{--bg:#F8F9FA;--surface:#FFFFFF;--surface2:#F1F3F4;--line:#E8EAED;--line2:#DADCE0;--tx:#202124;--tx2:#5F6368;--tx3:#3C4043;--tx4:#70757A;--pri:#1A73E8;--on-pri:#FFFFFF;--pri-bg:#E8F0FE;--pri-ink:#1967D2;--pri-ink2:#174EA6;--pri-line:#AECBFA;--pri-ring:#D2E3FC;--warn-bg:#FEF7E0;--warn:#B06000;--warn-ink:#7A4100;--warn-ink2:#633400;--warn-line:#FDE293;--ok-bg:#E6F4EA;--ok:#188038;--ok-ink:#137333;--ok-line:#CEEAD6;--ok-line2:#A8DAB5;--err-bg:#FCE8E6;--err:#C5221F;--err-ink:#A50E0E;--err-line:#F6AEA9;--inv-bg:#3C4043;--sh1:rgba(60,64,67,.04);--sh2:rgba(60,64,67,.25);--sh3:rgba(60,64,67,.3);--sun:none;--moon:inline;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),.ld:not([data-theme="light"]){--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}}
+:root[data-theme="dark"],.ld[data-theme="dark"]{--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}
+.i-sun{display:var(--sun)}.i-moon{display:var(--moon)}
+.tema{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--tx2);cursor:pointer;flex:0 0 auto}
+.tema:hover{background:var(--surface2);color:var(--tx)}
+
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;box-sizing:border-box;padding:0 16px;border-radius:999px;color:var(--tx3);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.1px}
+.tab:hover{color:var(--tx);background:var(--surface2)}
+.tab-on,.tab-on:hover{color:var(--pri-ink);background:var(--pri-bg)}
+.dem{font-size:12px;font-weight:500;background:var(--warn);color:var(--on-pri);border-radius:999px;padding:1px 8px;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px var(--sh1)}
+.btn{min-height:48px;padding:0 22px;border-radius:999px;font:600 15px 'Roboto',system-ui,sans-serif;cursor:pointer;border:1px solid var(--line2);background:var(--surface);color:var(--tx)}
+.btn-pri{background:var(--pri);border-color:var(--pri);color:var(--on-pri)}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--tx);font:500 14px 'Roboto',system-ui,sans-serif;cursor:pointer}
+.chip:disabled{cursor:not-allowed;background:var(--surface2);border:1px dashed var(--tx4);color:var(--tx2)}
+.chip-on{background:var(--pri-bg);border-color:var(--pri);color:var(--pri-ink);font-weight:600}
+.dong{display:flex;flex-direction:column;gap:2px;width:100%;text-align:left;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-family:'Roboto',system-ui,sans-serif;color:var(--tx);min-height:44px}
+.dong-on{border-color:var(--pri);background:var(--pri-bg)}
+.lbl{font-size:13px;font-weight:600;color:var(--tx3)}
+.mo{font-size:13px;color:var(--tx2);line-height:1.5}
+.ta{font:14px 'Roboto',system-ui,sans-serif;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);resize:vertical;color:var(--tx);background:var(--surface)}
+</style>
+</helmet>
+<div class="ld" data-theme="{{tema}}" style="min-height: 100vh; background: var(--bg)">
+  <header style="background: var(--surface); border-bottom: 1px solid var(--line)">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+      <a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; margin-right: 8px">
+        <svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><rect x="2" y="2" width="30" height="30" rx="8" fill="#1A73E8"></rect><rect x="8" y="11" width="18" height="15" rx="3" fill="#FFFFFF"></rect><rect x="8" y="11" width="18" height="5" rx="2.5" fill="#AECBFA"></rect><rect x="12" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><rect x="19.4" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><circle cx="13.5" cy="21" r="1.7" fill="#1A73E8"></circle><circle cx="20.5" cy="21" r="1.7" fill="#188038"></circle></svg>
+        <span style="font-size: 20px; color: var(--tx2); font-weight: 400">jacobase <span style="color: var(--tx); font-weight: 500">Lịch đăng</span></span>
+      </a>
+      <nav aria-label="Các mục Lịch đăng" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+        <a class="tab tab-on" href="Main.dc.html" aria-current="page">Lịch đăng</a>
+        <a class="tab" href="Brief.dc.html">Phiếu brief</a>
+        <a class="tab" href="Duyet.dc.html">Chờ duyệt <span class="dem">42</span></a>
+        <a class="tab" href="UuDai.dc.html">Ưu đãi <span class="dem">3</span></a>
+        <a class="tab" href="Kho.dc.html">Kho nội dung</a>
+        <a class="tab" href="HieuQua.dc.html">Hiệu quả</a>
+      </nav>
+      <label style="display: flex; align-items: center; gap: 10px; flex: 0 1 260px; min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; background: var(--surface2); cursor: text">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--tx2)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Tìm page, bài, brief" placeholder="Tìm page, bài, brief" style="flex: 1 1 auto; min-width: 0; border: 0; background: transparent; outline: 0; font: 400 14px 'Roboto', system-ui, sans-serif; color: var(--tx)">
+      </label>
+      <a class="tab" href="QuanTri.dc.html">Quản trị</a>
+      <button type="button" class="tema" aria-label="Đổi giao diện sáng hoặc tối" title="Đổi giao diện sáng / tối" onClick="{{doiTema}}"><svg class="i-moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg><svg class="i-sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button>
+      <span title="Quản lý" aria-label="Tài khoản Quản lý" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--pri-bg); color: var(--pri-ink); font-weight: 500; font-size: 15px">Q</span>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <a href="Main.dc.html" style="color: var(--pri); font-size: 14px; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center">← Về lịch</a>
+      <span style="display: block; font-size: 14px; color: var(--tx2)">Bài đã lên vẫn sửa được. <strong style="color: var(--pri); font-weight: 500">Sửa xong cần duyệt lại</strong> rồi mới cập nhật lên page.</span>
+      <h1 style="margin: 0; font-size: 28px; font-weight: 500; text-wrap: balance">Sửa bài đã đăng</h1>
+      <p style="margin: 0; color: var(--tx2); font-size: 14px">Chọn bài, ghi hướng sửa. Máy viết lại, bài sửa vào hàng Chờ duyệt, duyệt xong mới cập nhật lên page.</p>
+    </div>
+
+    <sc-if value="{{daGui}}" hint-placeholder-val="false">
+      <div class="card" style="padding: 20px 24px; display: flex; gap: 14px; align-items: flex-start; border-color: var(--ok-line2); background: var(--ok-bg)">
+        <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--ok-ink); flex: 0 0 auto"><path d="M5 12l5 5 9-10"></path></svg>
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <strong style="color: var(--ok-ink); font-size: 16px">Đã gửi yêu cầu sửa cho «{{tenBai}}»</strong>
+          <span style="color: var(--ok-ink); font-size: 14px; line-height: 1.5">Máy đang viết lại. Khi xong, bản sửa nằm ở mục Chờ duyệt. Bài trên page giữ nguyên cho tới khi bản sửa được duyệt.</span>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="display: grid; grid-template-columns: 420px minmax(0, 1fr); gap: 20px; align-items: start">
+      <section class="card" style="padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--tx2)">Bài đã đăng gần đây</span>
+        <sc-for list="{{dsBai}}" as="b" hint-placeholder-count="5">
+          <button type="button" class="{{b.cls}}" aria-pressed="{{b.on}}" onClick="{{b.chon}}">
+            <span style="font-weight: 600; font-size: 14px">{{b.ten}}</span>
+            <span class="mo">{{b.mo}}</span>
+          </button>
+        </sc-for>
+      </section>
+
+      <section class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 22px">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span class="lbl">Bài đang chọn</span>
+          <strong style="font-size: 18px">{{tenBai}}</strong>
+          <span class="mo">{{moBai}}</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span class="lbl">Loại sửa</span>
+          <div role="group" aria-label="Loại sửa" style="display: flex; flex-wrap: wrap; gap: 8px">
+            <sc-for list="{{dsLoai}}" as="l" hint-placeholder-count="3">
+              <button type="button" class="{{l.cls}}" aria-pressed="{{l.on}}" disabled="{{l.khoa}}" onClick="{{l.chon}}">{{l.ten}}</button>
+            </sc-for>
+          </div>
+          <span class="mo">{{moLoai}}</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <label for="huong" class="lbl">Hướng sửa (bắt buộc)</label>
+          <textarea id="huong" class="ta" rows="4" placeholder="Ví dụ: bỏ câu nói về tỉ lệ thành công, thay bằng câu về quy trình tư vấn"></textarea>
+          <span class="mo">Máy chỉ viết lại theo hướng này, không đổi phần anh chị không nhắc tới. Chân bài (hotline, địa chỉ) vẫn do code chèn.</span>
+        </div>
+
+        <div style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 12px; background: var(--warn-bg); border: 1px solid var(--warn-line); font-size: 13px; line-height: 1.55; color: var(--warn-ink)">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--warn-ink); flex: 0 0 auto"><path d="M12 3l10 18H2z"></path><path d="M12 10v5M12 18h.01"></path></svg>
+          <span><strong>Cần quyền sửa bài trên page.</strong> Đây là quyền riêng do anh cấp khi kết nối kênh. Kênh chưa có quyền này thì nút gửi bị khoá và máy ghi rõ lý do. Chưa kiểm chứng với TikTok.</span>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+          <button type="button" class="btn btn-pri" onClick="{{gui}}">Gửi yêu cầu sửa</button>
+          <a class="btn" href="Duyet.dc.html" style="display: inline-flex; align-items: center; text-decoration: none">Xem hàng Chờ duyệt</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+
+  ldTemaBanDau() {
+    try { var s = localStorage.getItem('ld-tema'); if (s === 'dark' || s === 'light') return s; } catch (e) {}
+    try { if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'; } catch (e) {}
+    return 'light';
+  }
+  renderVals() {
+    var self = this;
+    var v = self.renderVals0();
+    var t = self.state.tema || self.tema0 || 'light';
+    try { document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    v.tema = t;
+    v.doiTema = function () {
+      var n = t === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('ld-tema', n); } catch (e) {}
+      self.setState({ tema: n });
+    };
+    return v;
+  }
+  constructor(props) {
+    super(props); this.tema0 = this.ldTemaBanDau(); var me = this; try { window.addEventListener('storage', function (e) { if (e.key === 'ld-tema' && (e.newValue === 'dark' || e.newValue === 'light')) me.setState({ tema: e.newValue }); }); } catch (e) {}
+    this.state = { sel: 0, loai: 0, daGui: false };
+  }
+  renderVals0() {
+    var self = this;
+    var st = self.state;
+    var BAI = [
+      { ten: 'Reels · Quy trình khám lần đầu', page: 'Page SG-01', gio: '17:00 hôm qua', dd: 'Reels', xem: '1.240 lượt xem' },
+      { ten: 'Bài chữ · 5 câu hỏi hay gặp về IUI', page: 'Page SG-02', gio: '12:00 hôm qua', dd: 'Bài chữ', xem: '380 lượt xem' },
+      { ten: 'Carousel · Hành trình một chu kỳ IVF', page: 'Page AT-01', gio: '17:00 2 ngày trước', dd: 'Carousel', xem: '910 lượt xem' },
+      { ten: 'Ảnh + chữ · Không gian phòng lab', page: 'Page SG-01', gio: '08:00 3 ngày trước', dd: 'Ảnh + chữ', xem: '520 lượt xem' },
+      { ten: 'Reels · Chuyên gia nói về độ tuổi', page: 'Page AT-01', gio: '17:00 3 ngày trước', dd: 'Reels', xem: '2.060 lượt xem' }
+    ];
+    var b = BAI[st.sel];
+    var laReels = b.dd === 'Reels';
+    var loai = st.loai;
+    if (laReels && loai === 1) { loai = 0; }
+    var LOAI = ['Sửa chữ', 'Đổi ảnh / video', 'Gỡ bài'];
+    var moLoai = loai === 0 ? 'Máy viết lại phần chữ theo hướng sửa. Bản sửa vào hàng Chờ duyệt.'
+      : loai === 1 ? 'Thay ảnh trong bài từ thư viện. Chỉ bài ảnh, carousel.'
+      : 'Gỡ bài khỏi page. Người có quyền duyệt xác nhận trước khi gỡ.';
+    function cls(on, base) { return on ? base + ' ' + base + '-on' : base; }
+    return {
+      daGui: st.daGui,
+      tenBai: b.ten,
+      moBai: b.page + ' · đăng ' + b.gio + ' · ' + b.xem + (laReels ? '. Reels đã đăng thì không thay được video, chỉ sửa chữ hoặc gỡ.' : '.'),
+      moLoai: moLoai,
+      dsBai: BAI.map(function (x, i) {
+        return { ten: x.ten, mo: x.page + ' · ' + x.gio, cls: cls(i === st.sel, 'dong'), on: i === st.sel ? 'true' : 'false', chon: function () { self.setState({ sel: i, daGui: false }); } };
+      }),
+      dsLoai: LOAI.map(function (t, i) {
+        var khoa = i === 1 && laReels;
+        return { ten: khoa ? t + ' · Reels không đổi được' : t, khoa: khoa, cls: cls(i === loai, 'chip'), on: i === loai ? 'true' : 'false', chon: function () { self.setState({ loai: i, daGui: false }); } };
+      }),
+      gui: function () { self.setState({ daGui: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

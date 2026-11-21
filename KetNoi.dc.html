@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Kết nối kênh</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+:root,.ld{--bg:#F8F9FA;--surface:#FFFFFF;--surface2:#F1F3F4;--line:#E8EAED;--line2:#DADCE0;--tx:#202124;--tx2:#5F6368;--tx3:#3C4043;--tx4:#70757A;--pri:#1A73E8;--on-pri:#FFFFFF;--pri-bg:#E8F0FE;--pri-ink:#1967D2;--pri-ink2:#174EA6;--pri-line:#AECBFA;--pri-ring:#D2E3FC;--warn-bg:#FEF7E0;--warn:#B06000;--warn-ink:#7A4100;--warn-ink2:#633400;--warn-line:#FDE293;--ok-bg:#E6F4EA;--ok:#188038;--ok-ink:#137333;--ok-line:#CEEAD6;--ok-line2:#A8DAB5;--err-bg:#FCE8E6;--err:#C5221F;--err-ink:#A50E0E;--err-line:#F6AEA9;--inv-bg:#3C4043;--sh1:rgba(60,64,67,.04);--sh2:rgba(60,64,67,.25);--sh3:rgba(60,64,67,.3);--sun:none;--moon:inline;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),.ld:not([data-theme="light"]){--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}}
+:root[data-theme="dark"],.ld[data-theme="dark"]{--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}
+.i-sun{display:var(--sun)}.i-moon{display:var(--moon)}
+.tema{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--tx2);cursor:pointer;flex:0 0 auto}
+.tema:hover{background:var(--surface2);color:var(--tx)}
+
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;box-sizing:border-box;padding:0 16px;border-radius:999px;color:var(--tx3);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.1px}
+.tab:hover{color:var(--tx);background:var(--surface2)}
+.tab-on,.tab-on:hover{color:var(--pri-ink);background:var(--pri-bg)}
+.dem{font-size:12px;font-weight:500;background:var(--warn);color:var(--on-pri);border-radius:999px;padding:1px 8px;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px var(--sh1)}
+th{font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:var(--tx2);text-align:left;padding:12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{font-size:14px;padding:10px 12px;border-bottom:1px solid var(--surface2);vertical-align:middle}
+.btn{min-height:44px;padding:0 18px;border-radius:999px;font:600 14px 'Roboto',system-ui,sans-serif;cursor:pointer;border:1px solid var(--line2);background:var(--surface);color:var(--tx)}
+.btn-pri{background:var(--pri);border-color:var(--pri);color:var(--on-pri)}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--tx);font:500 14px 'Roboto',system-ui,sans-serif;cursor:pointer}
+.chip-on{background:var(--pri-bg);border-color:var(--pri);color:var(--pri-ink);font-weight:600}
+.sub{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:12px;text-decoration:none;font-size:14px;font-weight:600;color:var(--tx3);background:var(--surface);border:1px solid var(--line2)}
+.sub-on{background:var(--pri-bg);border-color:var(--pri);color:var(--pri-ink)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.mo{font-size:13px;color:var(--tx2);line-height:1.5}
+.vien{min-height:40px;padding:0 10px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);font:500 14px 'Roboto',system-ui,sans-serif;color:var(--tx)}
+</style>
+</helmet>
+<div class="ld" data-theme="{{tema}}" style="min-height: 100vh; background: var(--bg)">
+  <header style="background: var(--surface); border-bottom: 1px solid var(--line)">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+      <a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; margin-right: 8px">
+        <svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><rect x="2" y="2" width="30" height="30" rx="8" fill="#1A73E8"></rect><rect x="8" y="11" width="18" height="15" rx="3" fill="#FFFFFF"></rect><rect x="8" y="11" width="18" height="5" rx="2.5" fill="#AECBFA"></rect><rect x="12" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><rect x="19.4" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><circle cx="13.5" cy="21" r="1.7" fill="#1A73E8"></circle><circle cx="20.5" cy="21" r="1.7" fill="#188038"></circle></svg>
+        <span style="font-size: 20px; color: var(--tx2); font-weight: 400">jacobase <span style="color: var(--tx); font-weight: 500">Lịch đăng</span></span>
+      </a>
+      <nav aria-label="Các mục Lịch đăng" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+        <a class="tab" href="Main.dc.html">Lịch đăng</a>
+        <a class="tab" href="Brief.dc.html">Phiếu brief</a>
+        <a class="tab" href="Duyet.dc.html">Chờ duyệt <span class="dem">42</span></a>
+        <a class="tab" href="UuDai.dc.html">Ưu đãi <span class="dem">3</span></a>
+        <a class="tab" href="Kho.dc.html">Kho nội dung</a>
+        <a class="tab" href="HieuQua.dc.html">Hiệu quả</a>
+      </nav>
+      <label style="display: flex; align-items: center; gap: 10px; flex: 0 1 260px; min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; background: var(--surface2); cursor: text">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--tx2)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Tìm page, bài, brief" placeholder="Tìm page, bài, brief" style="flex: 1 1 auto; min-width: 0; border: 0; background: transparent; outline: 0; font: 400 14px 'Roboto', system-ui, sans-serif; color: var(--tx)">
+      </label>
+      <a class="tab tab-on" href="QuanTri.dc.html" aria-current="page">Quản trị</a>
+      <button type="button" class="tema" aria-label="Đổi giao diện sáng hoặc tối" title="Đổi giao diện sáng / tối" onClick="{{doiTema}}"><svg class="i-moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg><svg class="i-sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button>
+      <span title="Quản lý" aria-label="Tài khoản Quản lý" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--pri-bg); color: var(--pri-ink); font-weight: 500; font-size: 15px">Q</span>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <span style="display: block; font-size: 14px; color: var(--tx2)">Chào Quản lý, nối page Facebook và TikTok ở đây, <strong style="color: var(--pri); font-weight: 500">cấp quyền một lần là xong</strong>.</span>
+      <h1 style="margin: 0; font-size: 28px; font-weight: 500; text-wrap: balance">Quản trị</h1>
+      <p style="margin: 0; color: var(--tx2); font-size: 14px">Chỉ Quản lý thấy trang này.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <a class="sub" href="QuanTri.dc.html">Phân quyền nhân viên</a>
+      <a class="sub sub-on" href="KetNoi.dc.html" aria-current="page">Kết nối kênh</a>
+      <a class="sub" href="BanDo.dc.html">Bản đồ kết nối</a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+      <sc-for list="{{tong}}" as="t" hint-placeholder-count="3">
+        <div class="card" style="padding: 18px 20px; display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--tx2)">{{t.ten}}</span>
+          <span class="num" style="font-size: 28px; font-weight: 700">{{t.so}}</span>
+          <span class="mo">{{t.mo}}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 12px; background: var(--warn-bg); border: 1px solid var(--warn-line); font-size: 14px; line-height: 1.55; color: var(--warn-ink)">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--warn-ink); flex: 0 0 auto"><path d="M12 3l10 18H2z"></path><path d="M12 10v5M12 18h.01"></path></svg>
+      <span><strong>Chưa kiểm chứng:</strong> khả năng đăng bài lên TikTok bằng API (có thể cần TikTok duyệt ứng dụng trước). Facebook thì đăng được qua quyền quản lý page. Khoá truy cập và quyền do anh cấp sau, bản mẫu này chưa kết nối thật kênh nào.</span>
+    </div>
+
+    <section class="card" style="padding: 20px 8px 4px">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 0 16px 16px">
+        <div role="group" aria-label="Lọc theo nền tảng" style="display: flex; flex-wrap: wrap; gap: 8px">
+          <sc-for list="{{dsLoc}}" as="l" hint-placeholder-count="3">
+            <button type="button" class="{{l.cls}}" aria-pressed="{{l.on}}" onClick="{{l.chon}}">{{l.ten}}</button>
+          </sc-for>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button type="button" class="btn btn-pri" onClick="{{themFb}}">+ Kết nối Facebook</button>
+          <button type="button" class="btn" onClick="{{themTt}}">+ Kết nối TikTok</button>
+        </div>
+      </div>
+      <div style="overflow-x: auto">
+        <table style="width: 100%; min-width: 980px; border-collapse: collapse">
+          <thead><tr><th>Kênh</th><th>Nền tảng</th><th>Viện</th><th>Làn</th><th>Trạng thái</th><th>Quyền đăng</th><th>Hạn kết nối</th><th></th></tr></thead>
+          <tbody>
+            <sc-for list="{{dsKenh}}" as="k" hint-placeholder-count="8">
+              <tr>
+                <td style="font-weight: 600">{{k.ten}}</td>
+                <td style="color: var(--tx2)">{{k.nen}}</td>
+                <td style="color: var(--tx3)">{{k.vien}}</td>
+                <td style="color: var(--tx3)">{{k.lan}}</td>
+                <td><span class="tag" style="{{k.styTt}}">{{k.tt}}</span></td>
+                <td style="color: var(--tx2)">{{k.dang}}</td>
+                <td class="num" style="color: var(--tx2)">{{k.han}}</td>
+                <td><button type="button" class="btn" onClick="{{k.bam}}">{{k.nut}}</button></td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px">
+      <div style="display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; line-height: 1.55; color: var(--tx3)">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--pri); flex: 0 0 auto"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+        <span><strong>Khoá truy cập không bao giờ hiện trên trang.</strong> Bấm «Kết nối» thì mở cửa sổ đăng nhập của Facebook hoặc TikTok, máy chủ giữ khoá. Trang chỉ thấy trạng thái và ngày hết hạn.</span>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; line-height: 1.55; color: var(--tx3)">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--pri); flex: 0 0 auto"><path d="M4 6h16M4 12h16M4 18h10"></path></svg>
+        <span><strong>Kết nối hết hạn thì máy báo và dừng đăng kênh đó</strong>, không đăng dở. Mỗi lần kết nối, ngắt hay đổi làn đều ghi sổ: ai làm, lúc nào.</span>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1150}}'>
+class Component extends DCLogic {
+
+  ldTemaBanDau() {
+    try { var s = localStorage.getItem('ld-tema'); if (s === 'dark' || s === 'light') return s; } catch (e) {}
+    try { if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'; } catch (e) {}
+    return 'light';
+  }
+  renderVals() {
+    var self = this;
+    var v = self.renderVals0();
+    var t = self.state.tema || self.tema0 || 'light';
+    try { document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    v.tema = t;
+    v.doiTema = function () {
+      var n = t === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('ld-tema', n); } catch (e) {}
+      self.setState({ tema: n });
+    };
+    return v;
+  }
+  constructor(props) {
+    super(props); this.tema0 = this.ldTemaBanDau(); var me = this; try { window.addEventListener('storage', function (e) { if (e.key === 'ld-tema' && (e.newValue === 'dark' || e.newValue === 'light')) me.setState({ tema: e.newValue }); }); } catch (e) {}
+    this.state = {
+      loc: 0,
+      k: [
+        { ten: 'Page SG-01', nen: 'Facebook', vien: 'Sài Gòn', lan: 'Cả hai làn', tt: 'ok', dang: 'Có', han: 'còn 41 ngày' },
+        { ten: 'Page SG-02', nen: 'Facebook', vien: 'Sài Gòn', lan: 'Social Daily', tt: 'ok', dang: 'Có', han: 'còn 41 ngày' },
+        { ten: 'Page SG-03', nen: 'Facebook', vien: 'Sài Gòn', lan: 'Social Daily', tt: 'het', dang: 'Tạm dừng', han: 'đã hết hạn' },
+        { ten: 'Page AT-01', nen: 'Facebook', vien: 'An Thịnh', lan: 'Cả hai làn', tt: 'ok', dang: 'Có', han: 'còn 58 ngày' },
+        { ten: 'Page AT-02', nen: 'Facebook', vien: 'An Thịnh', lan: 'Social Daily', tt: 'chua', dang: 'Chưa kiểm', han: '—' },
+        { ten: 'Kênh SG-TT1', nen: 'TikTok', vien: 'Sài Gòn', lan: 'Social Daily', tt: 'chua', dang: 'Chưa kiểm', han: '—' },
+        { ten: 'Kênh AT-TT1', nen: 'TikTok', vien: 'An Thịnh', lan: 'Social Daily', tt: 'chua', dang: 'Chưa kiểm', han: '—' }
+      ]
+    };
+  }
+  renderVals0() {
+    var self = this;
+    var st = self.state;
+    var LOC = ['Tất cả', 'Facebook', 'TikTok'];
+    var TT = {
+      ok: ['Đã kết nối', 'var(--ok-bg)', 'var(--ok-ink)', 'Ngắt', 'Kết nối lại'],
+      het: ['Hết hạn', 'var(--warn-bg)', 'var(--warn-ink)', 'Kết nối lại'],
+      chua: ['Chưa kết nối', 'var(--surface2)', 'var(--tx3)', 'Kết nối']
+    };
+    function lat(i) {
+      return function () {
+        var k = self.state.k.map(function (r) { return Object.assign({}, r); });
+        var r = k[i];
+        if (r.tt === 'ok') { r.tt = 'chua'; r.dang = 'Chưa kiểm'; r.han = '—'; }
+        else {
+          r.tt = 'ok'; r.han = 'còn 60 ngày';
+          r.dang = r.nen === 'TikTok' ? 'Chưa kiểm' : 'Có';
+        }
+        self.setState({ k: k });
+      };
+    }
+    function them(nen) {
+      return function () {
+        var k = self.state.k.map(function (r) { return Object.assign({}, r); });
+        var n = k.filter(function (r) { return r.nen === nen; }).length + 1;
+        k.push({ ten: (nen === 'Facebook' ? 'Page mới ' : 'Kênh mới ') + n, nen: nen, vien: '—', lan: 'Chưa gán', tt: 'chua', dang: 'Chưa kiểm', han: '—' });
+        self.setState({ k: k });
+      };
+    }
+    var dsKenh = [];
+    st.k.forEach(function (r, i) {
+      if (st.loc !== 0 && r.nen !== LOC[st.loc]) { return; }
+      var m = TT[r.tt];
+      dsKenh.push({
+        ten: r.ten, nen: r.nen, vien: r.vien, lan: r.lan, dang: r.dang, han: r.han,
+        tt: m[0], styTt: 'background: ' + m[1] + '; color: ' + m[2],
+        nut: r.tt === 'ok' ? 'Ngắt' : (r.tt === 'het' ? 'Kết nối lại' : 'Kết nối'),
+        bam: lat(i)
+      });
+    });
+    var dsLoc = LOC.map(function (t, i) {
+      return { ten: t, cls: i === st.loc ? 'chip chip-on' : 'chip', on: i === st.loc ? 'true' : 'false', chon: function () { self.setState({ loc: i }); } };
+    });
+    function dem(nen, tt) { return st.k.filter(function (r) { return (!nen || r.nen === nen) && (!tt || r.tt === tt); }).length; }
+    var tong = [
+      { ten: 'Facebook', so: dem('Facebook', 'ok') + ' / ' + dem('Facebook'), mo: 'page đã kết nối (bản mẫu; thật là 50 page)' },
+      { ten: 'TikTok', so: dem('TikTok', 'ok') + ' / ' + dem('TikTok'), mo: 'kênh đã kết nối. Đăng bằng API chưa kiểm chứng.' },
+      { ten: 'Cần xử lý', so: String(dem(null, 'het')), mo: 'kết nối hết hạn, máy đã dừng đăng ở các kênh này.' }
+    ];
+    return { dsKenh: dsKenh, dsLoc: dsLoc, tong: tong, themFb: them('Facebook'), themTt: them('TikTok') };
+  }
+}
+</script>
+</body>
+</html>

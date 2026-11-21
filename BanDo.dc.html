@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Bản đồ kết nối</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+:root,.ld{--bg:#F8F9FA;--surface:#FFFFFF;--surface2:#F1F3F4;--line:#E8EAED;--line2:#DADCE0;--tx:#202124;--tx2:#5F6368;--tx3:#3C4043;--tx4:#70757A;--pri:#1A73E8;--on-pri:#FFFFFF;--pri-bg:#E8F0FE;--pri-ink:#1967D2;--pri-ink2:#174EA6;--pri-line:#AECBFA;--pri-ring:#D2E3FC;--warn-bg:#FEF7E0;--warn:#B06000;--warn-ink:#7A4100;--warn-ink2:#633400;--warn-line:#FDE293;--ok-bg:#E6F4EA;--ok:#188038;--ok-ink:#137333;--ok-line:#CEEAD6;--ok-line2:#A8DAB5;--err-bg:#FCE8E6;--err:#C5221F;--err-ink:#A50E0E;--err-line:#F6AEA9;--inv-bg:#3C4043;--sh1:rgba(60,64,67,.04);--sh2:rgba(60,64,67,.25);--sh3:rgba(60,64,67,.3);--sun:none;--moon:inline;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]),.ld:not([data-theme="light"]){--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}}
+:root[data-theme="dark"],.ld[data-theme="dark"]{--bg:#17181B;--surface:#202124;--surface2:#2B2D31;--line:#3A3D42;--line2:#5F6368;--tx:#E8EAED;--tx2:#9AA0A6;--tx3:#C4C7CC;--tx4:#8E949B;--pri:#8AB4F8;--on-pri:#202124;--pri-bg:#243552;--pri-ink:#AECBFA;--pri-ink2:#D2E3FC;--pri-line:#3F5F99;--pri-ring:#2D4A7C;--warn-bg:#3B331C;--warn:#F2B544;--warn-ink:#FDE293;--warn-ink2:#FDE293;--warn-line:#5F5021;--ok-bg:#1F3A2A;--ok:#81C995;--ok-ink:#A8DAB5;--ok-line:#2F5A40;--ok-line2:#3F7656;--err-bg:#402523;--err:#F28B82;--err-ink:#F6AEA9;--err-line:#70352F;--inv-bg:#E8EAED;--sh1:rgba(0,0,0,.35);--sh2:rgba(0,0,0,.6);--sh3:rgba(0,0,0,.6);--sun:inline;--moon:none;color-scheme:dark}
+.i-sun{display:var(--sun)}.i-moon{display:var(--moon)}
+.tema{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:0;background:transparent;color:var(--tx2);cursor:pointer;flex:0 0 auto}
+.tema:hover{background:var(--surface2);color:var(--tx)}
+
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Roboto',system-ui,-apple-system,'Segoe UI',sans-serif}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;box-sizing:border-box;padding:0 16px;border-radius:999px;color:var(--tx3);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.1px}
+.tab:hover{color:var(--tx);background:var(--surface2)}
+.tab-on,.tab-on:hover{color:var(--pri-ink);background:var(--pri-bg)}
+.dem{font-size:12px;font-weight:500;background:var(--warn);color:var(--on-pri);border-radius:999px;padding:1px 8px;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px var(--sh1)}
+th{font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;color:var(--tx2);text-align:left;padding:12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{font-size:14px;padding:10px 12px;border-bottom:1px solid var(--surface2);vertical-align:middle}
+.btn{min-height:44px;padding:0 18px;border-radius:999px;font:600 14px 'Roboto',system-ui,sans-serif;cursor:pointer;border:1px solid var(--line2);background:var(--surface);color:var(--tx)}
+.btn-pri{background:var(--pri);border-color:var(--pri);color:var(--on-pri)}
+.chip{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--tx);font:500 14px 'Roboto',system-ui,sans-serif;cursor:pointer}
+.chip-on{background:var(--pri-bg);border-color:var(--pri);color:var(--pri-ink);font-weight:600}
+.sub{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:12px;text-decoration:none;font-size:14px;font-weight:600;color:var(--tx3);background:var(--surface);border:1px solid var(--line2)}
+.sub-on{background:var(--pri-bg);border-color:var(--pri);color:var(--pri-ink)}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.mo{font-size:13px;color:var(--tx2);line-height:1.5}
+.vien{min-height:40px;padding:0 10px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);font:500 14px 'Roboto',system-ui,sans-serif;color:var(--tx)}
+</style>
+</helmet>
+<div class="ld" data-theme="{{tema}}" style="min-height: 100vh; background: var(--bg)">
+  <header style="background: var(--surface); border-bottom: 1px solid var(--line)">
+    <div style="max-width: 1360px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px">
+      <a href="Main.dc.html" style="display: inline-flex; align-items: center; gap: 12px; min-height: 44px; text-decoration: none; margin-right: 8px">
+        <svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34"><rect x="2" y="2" width="30" height="30" rx="8" fill="#1A73E8"></rect><rect x="8" y="11" width="18" height="15" rx="3" fill="#FFFFFF"></rect><rect x="8" y="11" width="18" height="5" rx="2.5" fill="#AECBFA"></rect><rect x="12" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><rect x="19.4" y="7" width="2.6" height="6" rx="1.3" fill="#FFFFFF"></rect><circle cx="13.5" cy="21" r="1.7" fill="#1A73E8"></circle><circle cx="20.5" cy="21" r="1.7" fill="#188038"></circle></svg>
+        <span style="font-size: 20px; color: var(--tx2); font-weight: 400">jacobase <span style="color: var(--tx); font-weight: 500">Lịch đăng</span></span>
+      </a>
+      <nav aria-label="Các mục Lịch đăng" style="display: flex; flex-wrap: wrap; gap: 4px; flex: 1 1 auto">
+        <a class="tab" href="Main.dc.html">Lịch đăng</a>
+        <a class="tab" href="Brief.dc.html">Phiếu brief</a>
+        <a class="tab" href="Duyet.dc.html">Chờ duyệt <span class="dem">42</span></a>
+        <a class="tab" href="UuDai.dc.html">Ưu đãi <span class="dem">3</span></a>
+        <a class="tab" href="Kho.dc.html">Kho nội dung</a>
+        <a class="tab" href="HieuQua.dc.html">Hiệu quả</a>
+      </nav>
+      <label style="display: flex; align-items: center; gap: 10px; flex: 0 1 260px; min-height: 44px; box-sizing: border-box; padding: 0 16px; border-radius: 999px; background: var(--surface2); cursor: text">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--tx2)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+        <input type="search" aria-label="Tìm page, bài, brief" placeholder="Tìm page, bài, brief" style="flex: 1 1 auto; min-width: 0; border: 0; background: transparent; outline: 0; font: 400 14px 'Roboto', system-ui, sans-serif; color: var(--tx)">
+      </label>
+      <a class="tab tab-on" href="QuanTri.dc.html" aria-current="page">Quản trị</a>
+      <button type="button" class="tema" aria-label="Đổi giao diện sáng hoặc tối" title="Đổi giao diện sáng / tối" onClick="{{doiTema}}"><svg class="i-moon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg><svg class="i-sun" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg></button>
+      <span title="Quản lý" aria-label="Tài khoản Quản lý" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--pri-bg); color: var(--pri-ink); font-weight: 500; font-size: 15px">Q</span>
+    </div>
+  </header>
+
+  <main style="max-width: 1360px; margin: 0 auto; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <span style="display: block; font-size: 14px; color: var(--tx2)">Chào Quản lý, đây là <strong style="color: var(--pri); font-weight: 500">toàn cảnh các kênh đang nối vào hệ thống</strong>.</span>
+      <h1 style="margin: 0; font-size: 28px; font-weight: 500; text-wrap: balance">Quản trị</h1>
+      <p style="margin: 0; color: var(--tx2); font-size: 14px">Chỉ Quản lý thấy trang này.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px">
+      <a class="sub" href="QuanTri.dc.html">Phân quyền nhân viên</a>
+      <a class="sub" href="KetNoi.dc.html">Kết nối kênh</a>
+      <a class="sub sub-on" href="BanDo.dc.html" aria-current="page">Bản đồ kết nối</a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+      <sc-for list="{{tong}}" as="t" hint-placeholder-count="3">
+        <div class="card" style="padding: 18px 20px; display: flex; flex-direction: column; gap: 4px">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--tx2)">{{t.ten}}</span>
+          <span class="num" style="font-size: 28px; font-weight: 700">{{t.so}}</span>
+          <span class="mo">{{t.mo}}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+      <section class="card" style="flex: 1 1 640px; min-width: 0; padding: 16px; display: flex; flex-direction: column; gap: 14px">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between">
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <div role="group" aria-label="Lọc theo nền tảng" style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{dsNen}}" as="l" hint-placeholder-count="3">
+                <button type="button" class="{{l.cls}}" aria-pressed="{{l.on}}" onClick="{{l.chon}}">{{l.ten}}</button>
+              </sc-for>
+            </div>
+            <div role="group" aria-label="Lọc theo viện" style="display: flex; flex-wrap: wrap; gap: 8px">
+              <sc-for list="{{dsVien}}" as="l" hint-placeholder-count="3">
+                <button type="button" class="{{l.cls}}" aria-pressed="{{l.on}}" onClick="{{l.chon}}">{{l.ten}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <button type="button" class="btn" onClick="{{xepLai}}">Xếp lại bản đồ</button>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 13px; color: var(--tx2)">
+          <span style="display: inline-flex; align-items: center; gap: 8px"><span style="display: inline-block; width: 28px; border-top: 2px solid var(--ok)"></span>Đã kết nối</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px"><span style="display: inline-block; width: 28px; border-top: 2px dashed var(--warn)"></span>Hết hạn, đã dừng đăng</span>
+          <span style="display: inline-flex; align-items: center; gap: 8px"><span style="display: inline-block; width: 28px; border-top: 2px dashed var(--line2)"></span>Chưa kết nối</span>
+        </div>
+
+        <div style="overflow-x: auto; border-radius: 12px; border: 1px solid var(--line)">
+          <div role="group" aria-label="Bản đồ các kênh đang nối vào Lịch đăng" style="position: relative; width: 900px; height: 600px; background-color: var(--surface2); background-image: radial-gradient(var(--line2) 1px, transparent 1px); background-size: 24px 24px">
+            <sc-for list="{{day}}" as="d" hint-placeholder-count="8">
+              <div style="{{d.sty}}"></div>
+            </sc-for>
+            <sc-for list="{{nut}}" as="n" hint-placeholder-count="10">
+              <div role="button" tabindex="0" aria-label="{{n.nhan}}" title="{{n.goiY}}" onPointerDown="{{n.down}}" style="{{n.sty}}">
+                <div style="{{n.hang1}}">
+                  <span style="{{n.bsty}}">{{n.badge}}</span>
+                  <span style="font-size: 14px; font-weight: 600; line-height: 1.3; color: inherit">{{n.t1}}</span>
+                </div>
+                <div style="{{n.hang2}}">
+                  <span style="{{n.dsty}}"></span>
+                  <span>{{n.t2}}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <p class="mo" style="margin: 0">Bấm một thẻ để xem chi tiết, kéo thẻ để xếp lại cho dễ nhìn (vị trí không được lưu). Màn hình hẹp thì vuốt ngang trong khung bản đồ.</p>
+      </section>
+
+      <aside class="card" aria-live="polite" style="flex: 0 1 340px; min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 14px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; color: var(--tx2)">Chi tiết kênh</span>
+        <div style="display: flex; align-items: center; gap: 10px">
+          <span style="{{ct.bsty}}">{{ct.badge}}</span>
+          <h2 style="margin: 0; font-size: 20px; font-weight: 500">{{ct.ten}}</h2>
+        </div>
+        <span class="tag" style="{{ct.styTt}}; align-self: flex-start">{{ct.tt}}</span>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 14px">
+          <span style="color: var(--tx2)">Viện</span><span style="font-weight: 500">{{ct.vien}}</span>
+          <span style="color: var(--tx2)">Làn</span><span style="font-weight: 500">{{ct.lan}}</span>
+          <span style="color: var(--tx2)">Quyền đăng</span><span style="font-weight: 500">{{ct.dang}}</span>
+          <span style="color: var(--tx2)">Hạn kết nối</span><span class="num" style="font-weight: 500">{{ct.han}}</span>
+          <span style="color: var(--tx2)">Lần đăng gần nhất</span><span style="font-weight: 500">{{ct.gan}}</span>
+        </div>
+        <div style="{{ct.styY}}">{{ct.luuY}}</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button type="button" class="btn btn-pri" onClick="{{ct.bam}}">{{ct.nut}}</button>
+          <a class="btn" href="KetNoi.dc.html" style="display: inline-flex; align-items: center; text-decoration: none; box-sizing: border-box">Mở bảng Kết nối kênh</a>
+        </div>
+        <p class="mo" style="margin: 0; min-height: 20px">{{ghiChu}}</p>
+      </aside>
+    </div>
+
+    <div style="display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 12px; background: var(--warn-bg); border: 1px solid var(--warn-line); font-size: 14px; line-height: 1.55; color: var(--warn-ink)">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="stroke: var(--warn-ink); flex: 0 0 auto"><path d="M12 3l10 18H2z"></path><path d="M12 10v5M12 18h.01"></path></svg>
+      <span><strong>Bản mẫu, chưa nối thật:</strong> bản đồ chỉ vẽ 7 kênh mẫu giống bảng Kết nối kênh (thật là 50 page Facebook cộng các kênh TikTok). Khả năng đăng bài lên TikTok bằng API chưa kiểm chứng. Khoá truy cập không bao giờ hiện trên trang.</span>
+    </div>
+  </main>
+</div>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1150}}'>
+class Component extends DCLogic {
+
+  ldTemaBanDau() {
+    try { var s = localStorage.getItem('ld-tema'); if (s === 'dark' || s === 'light') return s; } catch (e) {}
+    try { if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark'; } catch (e) {}
+    return 'light';
+  }
+  renderVals() {
+    var self = this;
+    var v = self.renderVals0();
+    var t = self.state.tema || self.tema0 || 'light';
+    try { document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+    v.tema = t;
+    v.doiTema = function () {
+      var n = t === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem('ld-tema', n); } catch (e) {}
+      self.setState({ tema: n });
+    };
+    return v;
+  }
+  constructor(props) {
+    super(props); this.tema0 = this.ldTemaBanDau(); var me = this; try { window.addEventListener('storage', function (e) { if (e.key === 'ld-tema' && (e.newValue === 'dark' || e.newValue === 'light')) me.setState({ tema: e.newValue }); }); } catch (e) {}
+    this.state = { nen: 0, vien: 0, chon: 'SG-03', pos: {}, ghiChu: '' };
+  }
+  kenh() {
+    return [
+      { id: 'SG-01', ten: 'Page SG-01', nen: 'Facebook', vien: 'Sài Gòn', lan: 'Cả hai làn', tt: 'ok', dang: 'Có', han: 'còn 41 ngày', gan: 'Hôm nay 08:30, đã đăng', x: 230, y: 90 },
+      { id: 'SG-02', ten: 'Page SG-02', nen: 'Facebook', vien: 'Sài Gòn', lan: 'Social Daily', tt: 'ok', dang: 'Có', han: 'còn 41 ngày', gan: 'Hôm qua 19:00, đã đăng', x: 95, y: 200 },
+      { id: 'SG-03', ten: 'Page SG-03', nen: 'Facebook', vien: 'Sài Gòn', lan: 'Social Daily', tt: 'het', dang: 'Tạm dừng', han: 'đã hết hạn', gan: '18/11, dừng vì hết hạn', x: 95, y: 400 },
+      { id: 'SG-TT1', ten: 'Kênh SG-TT1', nen: 'TikTok', vien: 'Sài Gòn', lan: 'Social Daily', tt: 'chua', dang: 'Chưa kiểm', han: '—', gan: 'Chưa đăng bài nào', x: 230, y: 510 },
+      { id: 'AT-01', ten: 'Page AT-01', nen: 'Facebook', vien: 'An Thịnh', lan: 'Cả hai làn', tt: 'ok', dang: 'Có', han: 'còn 58 ngày', gan: 'Hôm nay 11:00, đã đăng', x: 670, y: 90 },
+      { id: 'AT-02', ten: 'Page AT-02', nen: 'Facebook', vien: 'An Thịnh', lan: 'Social Daily', tt: 'chua', dang: 'Chưa kiểm', han: '—', gan: 'Chưa đăng bài nào', x: 805, y: 200 },
+      { id: 'AT-TT1', ten: 'Kênh AT-TT1', nen: 'TikTok', vien: 'An Thịnh', lan: 'Social Daily', tt: 'chua', dang: 'Chưa kiểm', han: '—', gan: 'Chưa đăng bài nào', x: 805, y: 400 }
+    ];
+  }
+  vt(id) {
+    var o = this.state.pos[id];
+    if (o) { return o; }
+    var k = this.kenh();
+    for (var i = 0; i < k.length; i++) { if (k[i].id === id) { return { x: k[i].x, y: k[i].y }; } }
+    return { x: 450, y: 300 };
+  }
+  batDau(e, id) {
+    var self = this;
+    if (e.button && e.button > 0) { return; }
+    var x0 = e.clientX, y0 = e.clientY, moved = false;
+    var p = self.vt(id); var ox = p.x, oy = p.y;
+    function mv(ev) {
+      var dx = ev.clientX - x0, dy = ev.clientY - y0;
+      if (!moved && Math.abs(dx) + Math.abs(dy) < 6) { return; }
+      moved = true;
+      var o = Object.assign({}, self.state.pos);
+      o[id] = { x: Math.max(84, Math.min(816, ox + dx)), y: Math.max(36, Math.min(564, oy + dy)) };
+      self.setState({ pos: o, chon: id, ghiChu: '' });
+    }
+    function up() {
+      window.removeEventListener('pointermove', mv);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+      if (!moved) { self.setState({ chon: id, ghiChu: '' }); }
+    }
+    window.addEventListener('pointermove', mv);
+    window.addEventListener('pointerup', up);
+    window.addEventListener('pointercancel', up);
+  }
+  renderVals0() {
+    var self = this;
+    var st = self.state;
+    var K = self.kenh();
+    var NEN = ['Tất cả nền tảng', 'Facebook', 'TikTok'];
+    var VIEN = ['Tất cả viện', 'Sài Gòn', 'An Thịnh'];
+    var TT = {
+      ok: { ten: 'Đã kết nối', bg: 'var(--ok-bg)', ink: 'var(--ok-ink)', cham: 'var(--ok)', vien: 'var(--ok-line2)', nut: 'Ngắt kết nối' },
+      het: { ten: 'Hết hạn', bg: 'var(--warn-bg)', ink: 'var(--warn-ink)', cham: 'var(--warn)', vien: 'var(--warn-line)', nut: 'Kết nối lại' },
+      chua: { ten: 'Chưa kết nối', bg: 'var(--surface2)', ink: 'var(--tx3)', cham: 'var(--line2)', vien: 'var(--line2)', nut: 'Kết nối' }
+    };
+    function khop(r) {
+      return (st.nen === 0 || r.nen === NEN[st.nen]) && (st.vien === 0 || r.vien === VIEN[st.vien]);
+    }
+    function bsty(nen) {
+      var tt = nen === 'Facebook';
+      return 'display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 20px; padding: 0 5px; border-radius: 6px; font-size: 11px; font-weight: 700; box-sizing: border-box; flex: 0 0 auto; background: ' + (tt ? 'var(--pri-bg)' : 'var(--inv-bg)') + '; color: ' + (tt ? 'var(--pri-ink)' : 'var(--bg)');
+    }
+    function day(x1, y1, x2, y2, mau, kieu, mo) {
+      var dx = x2 - x1, dy = y2 - y1;
+      var len = Math.sqrt(dx * dx + dy * dy);
+      var ang = Math.atan2(dy, dx) * 180 / Math.PI;
+      return { sty: 'position: absolute; left: ' + x1 + 'px; top: ' + (y1 - 1) + 'px; width: ' + len + 'px; height: 0; border-top: 2px ' + kieu + ' ' + mau + '; transform-origin: 0 0; transform: rotate(' + ang + 'deg); opacity: ' + mo + '; pointer-events: none' };
+    }
+    var HUB = { 'Sài Gòn': { x: 270, y: 300 }, 'An Thịnh': { x: 630, y: 300 } };
+    var TAM = { x: 450, y: 300 };
+    function dem(nen, tt, vien) {
+      return K.filter(function (r) { return (!nen || r.nen === nen) && (!tt || r.tt === tt) && (!vien || r.vien === vien); }).length;
+    }
+
+    var dsDay = [];
+    var dsNut = [];
+    var noop = function () {};
+
+    // Dây: viện -> tâm, kênh -> viện, ô «khác» -> tâm
+    ['Sài Gòn', 'An Thịnh'].forEach(function (vn) {
+      var h = HUB[vn];
+      var mo = (st.vien === 0 || VIEN[st.vien] === vn) ? 1 : 0.25;
+      dsDay.push(day(h.x, h.y, TAM.x, TAM.y, 'var(--pri-line)', 'solid', mo));
+    });
+    dsDay.push(day(TAM.x, TAM.y, 450, 520, 'var(--line2)', 'dashed', st.nen === 0 && st.vien === 0 ? 1 : 0.25));
+    K.forEach(function (r) {
+      var p = self.vt(r.id), h = HUB[r.vien], m = TT[r.tt];
+      var kieu = r.tt === 'ok' ? 'solid' : 'dashed';
+      var mau = r.tt === 'ok' ? 'var(--ok)' : (r.tt === 'het' ? 'var(--warn)' : 'var(--line2)');
+      dsDay.push(day(p.x, p.y, h.x, h.y, mau, kieu, khop(r) ? 1 : 0.2));
+    });
+
+    // Nút: tâm, hai viện, ô «khác», các kênh
+    function nutCoBan(x, y, w, h, extra) {
+      return 'position: absolute; left: ' + x + 'px; top: ' + y + 'px; width: ' + w + 'px; min-height: ' + h + 'px; box-sizing: border-box; transform: translate(-50%, -50%); display: flex; flex-direction: column; gap: 2px; user-select: none; ' + extra;
+    }
+    var hang2Chung = 'display: flex; align-items: center; gap: 6px; font-size: 12px; color: inherit; opacity: .85';
+    dsNut.push({
+      sty: nutCoBan(TAM.x, TAM.y, 132, 132, 'z-index: 3; border-radius: 50%; align-items: center; justify-content: center; text-align: center; background: var(--pri); color: var(--on-pri); box-shadow: 0 2px 8px var(--sh2)'),
+      hang1: 'display: flex; align-items: center; justify-content: center', hang2: hang2Chung + '; justify-content: center',
+      bsty: 'display: none', badge: '', dsty: 'display: none',
+      t1: 'Lịch đăng', t2: K.length + ' kênh · ' + dem(null, 'ok') + ' nối', nhan: 'Trung tâm Lịch đăng', goiY: 'Trung tâm: mọi kênh đăng bài qua đây', down: noop
+    });
+    ['Sài Gòn', 'An Thịnh'].forEach(function (vn) {
+      var h = HUB[vn];
+      dsNut.push({
+        sty: nutCoBan(h.x, h.y, 112, 64, 'z-index: 2; border-radius: 32px; align-items: center; justify-content: center; text-align: center; padding: 8px 10px; background: var(--pri-bg); color: var(--pri-ink2); border: 2px solid var(--pri-line); opacity: ' + ((st.vien === 0 || VIEN[st.vien] === vn) ? 1 : 0.3)),
+        hang1: 'display: flex; align-items: center; justify-content: center', hang2: hang2Chung + '; justify-content: center',
+        bsty: 'display: none', badge: '', dsty: 'display: none',
+        t1: vn, t2: dem(null, null, vn) + ' kênh · ' + dem(null, 'ok', vn) + ' nối', nhan: 'Viện ' + vn, goiY: 'Viện ' + vn, down: noop
+      });
+    });
+    dsNut.push({
+      sty: nutCoBan(450, 520, 190, 56, 'z-index: 2; padding: 8px 12px; border-radius: 14px; background: transparent; color: var(--tx2); border: 2px dashed var(--line2); opacity: ' + (st.nen === 0 && st.vien === 0 ? 1 : 0.3)),
+      hang1: 'display: flex; align-items: center; gap: 8px', hang2: hang2Chung,
+      bsty: 'display: none', badge: '', dsty: 'display: none',
+      t1: '+ 43 page khác', t2: 'bản mẫu chưa vẽ hết', nhan: 'Còn 43 page khác chưa vẽ trong bản mẫu', goiY: 'Thật có 50 page, bản mẫu chỉ vẽ 5 page Facebook', down: noop
+    });
+    K.forEach(function (r) {
+      var p = self.vt(r.id), m = TT[r.tt], chon = st.chon === r.id;
+      dsNut.push({
+        sty: nutCoBan(p.x, p.y, 168, 58, 'z-index: ' + (chon ? 4 : 2) + '; padding: 8px 12px; border-radius: 14px; background: var(--surface); color: var(--tx); cursor: grab; touch-action: none; border: 2px solid ' + (chon ? 'var(--pri)' : m.vien) + '; box-shadow: ' + (chon ? '0 0 0 4px var(--pri-ring)' : '0 1px 2px var(--sh1)') + '; opacity: ' + (khop(r) ? 1 : 0.25)),
+        hang1: 'display: flex; align-items: center; gap: 8px', hang2: hang2Chung + '; color: var(--tx2); opacity: 1',
+        bsty: bsty(r.nen), badge: r.nen === 'Facebook' ? 'FB' : 'TT', dsty: 'display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto; background: ' + m.cham,
+        t1: r.ten, t2: m.ten, nhan: r.ten + ', ' + r.nen + ', ' + r.vien + ', ' + m.ten, goiY: 'Bấm để xem chi tiết, kéo để xếp lại',
+        down: (function (id) { return function (e) { self.batDau(e, id); }; })(r.id)
+      });
+    });
+
+    // Bảng chi tiết
+    var c = K[0];
+    K.forEach(function (r) { if (r.id === st.chon) { c = r; } });
+    var mc = TT[c.tt];
+    var luuY = '', styY = 'display: none';
+    if (c.tt === 'het') {
+      luuY = 'Kết nối đã hết hạn nên máy dừng đăng ở kênh này. Cần Quản lý bấm «Kết nối lại» và đăng nhập lại một lần.';
+      styY = 'padding: 12px 14px; border-radius: 12px; font-size: 13px; line-height: 1.55; background: var(--warn-bg); border: 1px solid var(--warn-line); color: var(--warn-ink)';
+    } else if (c.tt === 'chua' && c.nen === 'TikTok') {
+      luuY = 'Chưa kết nối. Khả năng đăng bài lên TikTok bằng API chưa kiểm chứng (có thể cần TikTok duyệt ứng dụng).';
+      styY = 'padding: 12px 14px; border-radius: 12px; font-size: 13px; line-height: 1.55; background: var(--surface2); border: 1px solid var(--line); color: var(--tx3)';
+    } else if (c.tt === 'chua') {
+      luuY = 'Chưa kết nối. Bấm «Kết nối» để mở cửa sổ đăng nhập Facebook và cấp quyền quản lý page.';
+      styY = 'padding: 12px 14px; border-radius: 12px; font-size: 13px; line-height: 1.55; background: var(--surface2); border: 1px solid var(--line); color: var(--tx3)';
+    }
+    var ct = {
+      ten: c.ten, badge: c.nen === 'Facebook' ? 'FB' : 'TT', bsty: bsty(c.nen), vien: c.vien, lan: c.lan, dang: c.dang, han: c.han, gan: c.gan,
+      tt: mc.ten, styTt: 'background: ' + mc.bg + '; color: ' + mc.ink, nut: mc.nut, luuY: luuY, styY: styY,
+      bam: function () {
+        self.setState({ ghiChu: 'Bản mẫu: bấm ở bản thật sẽ mở cửa sổ đăng nhập ' + c.nen + '. Chưa kết nối thật, trạng thái giữ nguyên.' });
+      }
+    };
+
+    function chip(arr, key) {
+      return arr.map(function (t, i) {
+        return { ten: t, cls: i === st[key] ? 'chip chip-on' : 'chip', on: i === st[key] ? 'true' : 'false', chon: function () { var o = {}; o[key] = i; self.setState(o); } };
+      });
+    }
+    var tong = [
+      { ten: 'Facebook', so: dem('Facebook', 'ok') + ' / ' + dem('Facebook'), mo: 'page đã kết nối trên bản đồ (thật là 50 page)' },
+      { ten: 'TikTok', so: dem('TikTok', 'ok') + ' / ' + dem('TikTok'), mo: 'kênh đã kết nối. Đăng bằng API chưa kiểm chứng.' },
+      { ten: 'Cần xử lý', so: String(dem(null, 'het')), mo: 'kết nối hết hạn, máy đã dừng đăng ở kênh này.' }
+    ];
+    return {
+      tong: tong, dsNen: chip(NEN, 'nen'), dsVien: chip(VIEN, 'vien'), day: dsDay, nut: dsNut, ct: ct, ghiChu: st.ghiChu,
+      xepLai: function () { self.setState({ pos: {}, ghiChu: '' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
